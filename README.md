@@ -8,9 +8,10 @@ Comprehensive analysis of income, poverty, and inequality in Chile using CASEN (
 
 ## Key Findings
 
-- **Poverty reduction**: Total income poverty fell from 9.8% to 4.6%, with transfer efficiency nearly doubling
-- **Pro-poor income growth**: Bottom decile grew 26% vs only 7% for top decile (inflation-adjusted)
-- **Declining education premium**: University wage premium fell from 125% to 99% at the median
+- **Poverty reduction**: Total income poverty fell from 9.8% to 4.6%, with transfer efficiency improving from 60.8% to 76.2% of autonomous poverty eliminated
+- **Near-elimination of elderly poverty**: State transfers eliminate 99.7% of autonomous poverty among elderly-only households, reducing total income poverty to just 0.12%
+- **Pro-poor income growth**: Bottom decile grew 51% in total income vs only 19% for top decile (inflation-adjusted)
+- **Declining education premium**: University wage premium fell from 126% to 99% at the median, with non-university workers seeing 21% wage growth vs only 7% for university graduates
 
 ## Poverty Line Definition
 
@@ -21,18 +22,19 @@ This analysis uses the **World Bank $8.3 PPP (2017)** poverty line standard:
 ## Income Definitions
 
 Two income measures are analyzed:
-- **Total income**: `ytotcorh / numper` (total household income per capita)
-- **Autonomous income**: `(ytotcorh - ysubh) / numper` (excluding state transfers/subsidies)
+- **Total income**: `ytotcorh / numper` (corrected household income per capita, including all sources)
+- **Autonomous income**: `yautcorh / numper` (includes only labor income, self-employment, and contributory pensions—excludes all state transfers)
+- **State transfers**: Non-contributory pensions (PGU, PBS) + subsidies + other government transfers
 
 ## Household Categories
 
 Households are classified by age composition:
 | Category | Definition |
 |----------|------------|
-| No65 | No members aged 65+ |
-| AtLeast1_65 | At least one member aged 65+ |
-| Only65 | All members aged 65+ |
-| WorkAge | All members aged 18-64 (working age only) |
+| No65 | Households without members aged 65+ |
+| AtLeast1_65 | Households with at least one member aged 65+ |
+| Only65 | Households where all members are aged 65+ |
+| WorkAge | Households with only members aged 24-64 (working age only) |
 
 ## Folder Structure
 
@@ -54,8 +56,18 @@ Located in `reports/`:
 |------|-------------|
 | `REPORT_Poverty_Comparison_2017_2024.tex` | Main report (English) - LaTeX source |
 | `REPORT_Poverty_Comparison_2017_2024_ES.tex` | Main report (Spanish) - LaTeX source |
-| `education_premium_*.png` | Education premium graphs (English) |
-| `education_premium_*_es.png` | Education premium graphs (Spanish) |
+
+### Figures
+
+| File | Description |
+|------|-------------|
+| `education_premium_median.png` | Education premium at median (English) |
+| `education_premium_p25.png` | Education premium at P25 (English) |
+| `education_premium_p75.png` | Education premium at P75 (English) |
+| `education_premium_p90.png` | Education premium at P90 (English) |
+| `income_by_education_2017.png` | Income comparison by education, 2017 (English) |
+| `income_by_education_2024.png` | Income comparison by education, 2024 (English) |
+| `*_es.png` | Spanish versions of all figures |
 
 To compile PDF reports:
 ```bash
@@ -111,7 +123,11 @@ source("codes/labor_income_by_cohort.R")      # Calculate hourly income statisti
 source("codes/labor_income_tables_graphs.R")  # Generate tables and figures (EN/ES)
 ```
 Results are saved to `output/labor_income_by_cohort.xlsx` and `output/labor_income_tables.xlsx`.
-Figures are saved to `reports/education_premium_*.png`.
+
+Generated figures (saved to `reports/`):
+- Education premium by age cohort (P25, median, P75, P90)
+- Income comparison by education level (2017 vs 2024)
+- All figures in English and Spanish versions
 
 ## Harmonized Variables
 
@@ -173,3 +189,26 @@ A LaTeX distribution (e.g., TeX Live, MiKTeX) with the following packages:
 - **Survey weights**: All statistics use expansion factors (`expr`)
 - **Labor income sample**: Employed workers dependent on employer (activ=1, o15 in 3,4,5), ages 26-65
 - **Hourly income**: `yoprcor / (y2_hrs * 4.33)` (monthly income / monthly hours)
+- **Income deciles**: Defined based on autonomous income distribution
+- **Education premium**: Calculated as `100 * (Univ_income / NoUniv_income - 1)`
+
+## Report Highlights
+
+### Poverty and Transfers
+| Metric | 2017 | 2024 | Change |
+|--------|------|------|--------|
+| Total income poverty | 9.80% | 4.59% | -5.21 pp |
+| Autonomous income poverty | 25.01% | 19.32% | -5.69 pp |
+| Transfer efficiency | 60.8% | 76.2% | +15.4 pp |
+
+### Education Premium (Median Hourly Income)
+| Metric | 2017 | 2024 | Change |
+|--------|------|------|--------|
+| No University income | 2,584 CLP/hr | 3,125 CLP/hr | +21% |
+| University income | 5,818 CLP/hr | 6,215 CLP/hr | +7% |
+| Education premium | 125% | 99% | -26 pp |
+
+---
+
+*Report generated: January 2026*
+*Data: CASEN 2017 and CASEN 2024, Ministerio de Desarrollo Social y Familia, Chile*
