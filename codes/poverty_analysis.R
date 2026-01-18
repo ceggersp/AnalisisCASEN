@@ -90,7 +90,7 @@ casen <- casen %>%
 casen <- casen %>%
   mutate(
     ypch_total_cor = ytotcorh / numper,
-    ypch_true_aut = (ytotcorh - ysubh) / numper
+    ypch_true_aut = yautcorh/numper
   )
 
 cat("Household composition indicators created.\n")
@@ -354,7 +354,7 @@ weighted_quantile <- function(x, weights, probs) {
 }
 
 decile_breaks <- weighted_quantile(
-  casen$ypch_total_cor,
+  casen$ypch_true_aut,
   weights = casen$expr,
   probs = seq(0, 1, 0.1)
 )

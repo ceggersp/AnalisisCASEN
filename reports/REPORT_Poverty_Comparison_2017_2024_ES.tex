@@ -78,14 +78,16 @@ Este informe analiza los cambios en ingresos, pobreza y desigualdad en Chile ent
 \textbf{Principales Hallazgos}:
 
 \begin{itemize}
-    \item \textbf{Reducción de la pobreza}: La pobreza por ingresos totales cayó de \textbf{9,8\% a 4,6\%}, con la eficiencia de las transferencias estatales casi duplicándose (de 27,8\% a 45,4\% de la pobreza autónoma eliminada). La pobreza en hogares con solo adultos mayores está virtualmente eliminada (0,12\%).
+    \item \textbf{Reducción de la pobreza}: La pobreza por ingresos totales cayó de \textbf{9,8\% a 4,6\%}, mientras la pobreza por ingreso autónomo cayó de 25,0\% a 19,3\%. La eficiencia de las transferencias mejoró sustancialmente (de 60,8\% a 76,2\% de la pobreza autónoma eliminada). La pobreza en hogares con solo adultos mayores está virtualmente eliminada (0,12\%).
 
-    \item \textbf{Crecimiento pro-pobre de ingresos}: El crecimiento de ingresos fue fuertemente progresivo---el decil más bajo creció 26\% mientras el decil más alto creció solo 7\% (ajustado por inflación). Este patrón se mantuvo tanto para ingresos totales como autónomos, indicando una compresión impulsada por el mercado.
+    \item \textbf{Masivo impacto de transferencias en adultos mayores}: La pobreza autónoma entre hogares con solo adultos mayores \textbf{aumentó} de 31,7\% a 41,7\%, pero las transferencias estatales ahora eliminan \textbf{99,7\%} de esa pobreza autónoma.
 
-    \item \textbf{Disminución de la prima educacional}: La prima salarial universitaria cayó sustancialmente, de 125\% a 99\% en la mediana. Los salarios por hora de trabajadores sin universidad crecieron 21\% mientras los graduados universitarios vieron solo un 7\% de crecimiento. Esto representa un estrechamiento significativo de la desigualdad basada en educación.
+    \item \textbf{Crecimiento pro-pobre de ingresos}: El crecimiento de ingresos fue fuertemente progresivo---el decil más bajo creció 51\% en ingreso total mientras el decil más alto creció solo 19\% (ajustado por inflación). El ingreso autónomo también mostró patrones pro-pobres.
+
+    \item \textbf{Disminución de la prima educacional}: La prima salarial universitaria cayó sustancialmente, de 126\% a 99\% en la mediana. Los salarios por hora de trabajadores sin universidad crecieron 21\% mientras los graduados universitarios vieron solo un 7\% de crecimiento.
 \end{itemize}
 
-En conjunto, estos hallazgos sugieren que Chile experimentó una compresión generalizada de ingresos entre 2017 y 2024, con ganancias concentradas en hogares de menores ingresos y trabajadores menos educados.
+En conjunto, estos hallazgos sugieren que Chile experimentó una compresión generalizada de ingresos entre 2017 y 2024, impulsada tanto por la expansión de transferencias estatales como por mejoras en ingresos de mercado concentradas en hogares de menores ingresos.
 
 % ============================================================
 \section{Metodología}
@@ -95,9 +97,9 @@ En conjunto, estos hallazgos sugieren que Chile experimentó una compresión gen
 
 \begin{itemize}
     \item \textbf{Ingreso total}: \texttt{ytotcorh / numper} (ingreso del hogar corregido per cápita, incluyendo todas las fuentes)
-    \item \textbf{Ingreso autónomo}: \texttt{(ytotcorh - ysubh) / numper} (excluyendo transferencias estatales)
-    \item \textbf{Transferencias estatales (ysubh)}: Pensiones no contributivas + subsidios
-    \item \textbf{Pensiones contributivas (AFP)}: Permanecen en el ingreso autónomo (autofinanciadas)
+    \item \textbf{Ingreso autónomo}: \texttt{yautcorh / numper} (incluye solo ingreso laboral, trabajo independiente y pensiones contributivas---excluye todas las transferencias estatales)
+    \item \textbf{Transferencias estatales}: Pensiones no contributivas (PGU, PBS) + subsidios + otras transferencias gubernamentales
+    \item \textbf{Pensiones contributivas (AFP)}: Incluidas en el ingreso autónomo (autofinanciadas)
 \end{itemize}
 
 \subsection{Líneas de Pobreza}
@@ -113,6 +115,7 @@ Ambas líneas de pobreza son equivalentes al estándar del Banco Mundial de \$8,
 
 \begin{table}[H]
 \centering
+\caption{Categorías de composición etaria de hogares}
 \begin{tabular}{@{}ll@{}}
 \toprule
 \textbf{Categoría} & \textbf{Definición} \\
@@ -123,7 +126,6 @@ Solo65 & Hogares donde TODOS los miembros tienen 65+ años \\
 EdadLaboral & Hogares con solo miembros de 24--64 años \\
 \bottomrule
 \end{tabular}
-\caption{Categorías de composición etaria de hogares}
 \end{table}
 
 % ============================================================
@@ -134,36 +136,36 @@ EdadLaboral & Hogares con solo miembros de 24--64 años \\
 
 \begin{table}[H]
 \centering
+\caption{Comparación de tasas de pobreza nacional}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Indicador} & \textbf{2017} & \textbf{2024} & \textbf{Cambio} \\
 \midrule
 Pobreza por ingreso total & 9,80\% & 4,59\% & \textbf{--5,21 pp} \\
-Pobreza por ingreso autónomo & 13,57\% & 8,41\% & \textbf{--5,16 pp} \\
-Impacto de transferencias & 3,77 pp & 3,82 pp & +0,05 pp \\
+Pobreza por ingreso autónomo & 25,01\% & 19,32\% & \textbf{--5,69 pp} \\
+Impacto de transferencias & 15,21 pp & 14,73 pp & --0,48 pp \\
 \bottomrule
 \end{tabular}
-\caption{Comparación de tasas de pobreza nacional}
 \end{table}
 
-Tanto la pobreza total como la autónoma disminuyeron en magnitudes similares ($\sim$5 pp), sugiriendo que la reducción de la pobreza fue impulsada principalmente por mejoras en los ingresos de mercado (salarios, trabajo independiente, pensiones contributivas) más que por expansión de transferencias estatales.
+Las transferencias estatales tienen un impacto masivo en la reducción de pobreza, eliminando aproximadamente 15 puntos porcentuales de pobreza en ambos años. Tanto la pobreza total como la autónoma disminuyeron en magnitudes similares ($\sim$5 pp), indicando que tanto las mejoras en ingresos de mercado como la efectividad de las transferencias contribuyeron a la reducción de pobreza.
 
-\subsection{La Eficiencia de las Transferencias Estatales se Duplicó}
+\subsection{La Eficiencia de las Transferencias Estatales Mejoró}
 
 \begin{table}[H]
 \centering
+\caption{Comparación de eficiencia de transferencias}
 \begin{tabular}{@{}lrr@{}}
 \toprule
 \textbf{Indicador} & \textbf{2017} & \textbf{2024} \\
 \midrule
-Impacto de transferencias (pp) & 3,77 & 3,82 \\
-\% de pobreza autónoma eliminada & \textbf{27,8\%} & \textbf{45,4\%} \\
+Impacto de transferencias (pp) & 15,21 & 14,73 \\
+\% de pobreza autónoma eliminada & \textbf{60,8\%} & \textbf{76,2\%} \\
 \bottomrule
 \end{tabular}
-\caption{Comparación de eficiencia de transferencias}
 \end{table}
 
-Aunque el impacto absoluto de las transferencias permaneció casi constante (3,77 pp vs 3,82 pp), la eficiencia aumentó dramáticamente porque la pobreza autónoma disminuyó. Las transferencias estatales ahora eliminan \textbf{45,4\%} de la pobreza pre-transferencias, comparado con solo 27,8\% en 2017.
+Las transferencias estatales eliminan una proporción sustancial de la pobreza autónoma. La eficiencia mejoró de 60,8\% a 76,2\%, lo que significa que las transferencias ahora eliminan más de tres cuartos de la pobreza pre-transferencias. Esta mejora ocurrió aunque el impacto absoluto permaneció aproximadamente constante ($\sim$15 pp).
 
 \subsection{Casi Eliminación de la Pobreza Entre Adultos Mayores}
 
@@ -171,31 +173,32 @@ El hallazgo más notable concierne a \textbf{hogares con solo adultos mayores} (
 
 \begin{table}[H]
 \centering
+\caption{Indicadores de pobreza en hogares con solo adultos mayores}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Indicador} & \textbf{2017} & \textbf{2024} & \textbf{Cambio} \\
 \midrule
 Pobreza por ingreso total & 0,85\% & \textbf{0,12\%} & --0,73 pp \\
-Pobreza por ingreso autónomo & 10,45\% & 9,34\% & --1,11 pp \\
-Impacto de transferencias & 9,60 pp & 9,22 pp & --0,38 pp \\
-\textbf{Eficiencia de transferencias} & 91,9\% & \textbf{98,7\%} & +6,8 pp \\
+Pobreza por ingreso autónomo & 31,71\% & 41,72\% & +10,01 pp \\
+Impacto de transferencias & 30,86 pp & 41,60 pp & +10,74 pp \\
+\textbf{Eficiencia de transferencias} & 97,3\% & \textbf{99,7\%} & +2,4 pp \\
 \bottomrule
 \end{tabular}
-\caption{Indicadores de pobreza en hogares con solo adultos mayores}
 \end{table}
 
 \textbf{Interpretación}:
 \begin{itemize}
-    \item Sin transferencias estatales, $\sim$9--10\% de los hogares con solo adultos mayores serían pobres (similar en ambos años)
-    \item Las transferencias estatales ahora eliminan \textbf{98,7\%} de la pobreza autónoma entre hogares con solo adultos mayores
-    \item La pobreza por ingreso total en hogares con solo adultos mayores ha sido virtualmente eliminada (0,12\%)
-    \item Esto representa uno de los programas de transferencias focalizadas más efectivos en América Latina
+    \item Sin transferencias estatales, la pobreza autónoma entre hogares con solo adultos mayores \textbf{aumentó} de 31,7\% a 41,7\%
+    \item Sin embargo, las transferencias estatales ahora eliminan \textbf{99,7\%} de la pobreza autónoma entre hogares con solo adultos mayores
+    \item La pobreza por ingreso total ha sido virtualmente eliminada (0,12\%)
+    \item Esto representa uno de los programas de transferencias focalizadas más efectivos en América Latina, compensando el deterioro de la posición de ingresos autónomos
 \end{itemize}
 
 \subsection{Reducción de Pobreza en Todos los Tipos de Hogares}
 
 \begin{table}[H]
 \centering
+\caption{Pobreza por ingreso total según tipo de hogar}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Tipo de Hogar} & \textbf{2017} & \textbf{2024} & \textbf{Cambio} \\
@@ -206,7 +209,6 @@ Solo adultos mayores & 0,85\% & 0,12\% & --0,73 pp \\
 Solo edad laboral & 2,78\% & 1,59\% & --1,19 pp \\
 \bottomrule
 \end{tabular}
-\caption{Pobreza por ingreso total según tipo de hogar}
 \end{table}
 
 Todos los tipos de hogares experimentaron reducción de pobreza, con hogares sin adultos mayores mostrando la mayor disminución absoluta (--5,78 pp).
@@ -215,21 +217,21 @@ Todos los tipos de hogares experimentaron reducción de pobreza, con hogares sin
 
 \begin{table}[H]
 \centering
+\caption{Eficiencia de transferencias (\% de pobreza autónoma eliminada) por tipo de hogar}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Tipo de Hogar} & \textbf{2017} & \textbf{2024} & \textbf{Cambio} \\
 \midrule
-General & 27,8\% & 45,4\% & +17,6 pp \\
-Sin adultos mayores & 17,6\% & 26,0\% & +8,4 pp \\
-Al menos 1 adulto mayor & 55,3\% & 82,9\% & +27,6 pp \\
-\textbf{Solo adultos mayores} & 91,9\% & \textbf{98,7\%} & +6,8 pp \\
-Solo edad laboral & 28,5\% & 31,5\% & +3,0 pp \\
+General & 60,8\% & 76,2\% & +15,4 pp \\
+Sin adultos mayores & 52,4\% & 64,2\% & +11,8 pp \\
+Al menos 1 adulto mayor & 79,2\% & 93,8\% & +14,6 pp \\
+\textbf{Solo adultos mayores} & 97,3\% & \textbf{99,7\%} & +2,4 pp \\
+Solo edad laboral & 70,6\% & 79,7\% & +9,1 pp \\
 \bottomrule
 \end{tabular}
-\caption{Eficiencia de transferencias (\% de pobreza autónoma eliminada) por tipo de hogar}
 \end{table}
 
-\textbf{Hallazgo clave}: Los hogares con adultos mayores se benefician más de las transferencias estatales. Para hogares con al menos un adulto mayor, las transferencias ahora eliminan 82,9\% de la pobreza autónoma, aumentando desde 55,3\% en 2017.
+\textbf{Hallazgo clave}: La eficiencia de transferencias mejoró en todos los tipos de hogares. Para hogares con al menos un adulto mayor, las transferencias ahora eliminan 93,8\% de la pobreza autónoma, aumentando desde 79,2\% en 2017. Para hogares con solo adultos mayores, la eficiencia alcanza 99,7\%.
 
 % ============================================================
 \section{Análisis Regional}
@@ -239,6 +241,7 @@ Solo edad laboral & 28,5\% & 31,5\% & +3,0 pp \\
 
 \begin{table}[H]
 \centering
+\caption{Regiones con mayor reducción de pobreza}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Región} & \textbf{2017} & \textbf{2024} & \textbf{Cambio} \\
@@ -250,7 +253,6 @@ Coquimbo & 14,89\% & 6,47\% & --8,42 pp \\
 Biobío & 13,31\% & 4,99\% & --8,32 pp \\
 \bottomrule
 \end{tabular}
-\caption{Regiones con mayor reducción de pobreza}
 \end{table}
 
 Regiones históricamente pobres en el sur de Chile (La Araucanía, Los Lagos) y centro-sur (Ñuble, Maule) mostraron las mayores mejoras.
@@ -259,6 +261,7 @@ Regiones históricamente pobres en el sur de Chile (La Araucanía, Los Lagos) y 
 
 \begin{table}[H]
 \centering
+\caption{Región con aumento de pobreza}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Región} & \textbf{2017} & \textbf{2024} & \textbf{Cambio} \\
@@ -266,7 +269,6 @@ Regiones históricamente pobres en el sur de Chile (La Araucanía, Los Lagos) y 
 Magallanes & 2,25\% & 2,43\% & +0,18 pp \\
 \bottomrule
 \end{tabular}
-\caption{Región con aumento de pobreza}
 \end{table}
 
 Magallanes fue la única región donde la pobreza aumentó levemente, aunque permanece entre las regiones con menor pobreza.
@@ -275,6 +277,7 @@ Magallanes fue la única región donde la pobreza aumentó levemente, aunque per
 
 \begin{table}[H]
 \centering
+\caption{Regiones con mayor aumento en efectividad de transferencias}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Región} & \textbf{Impacto 2017} & \textbf{Impacto 2024} & \textbf{Cambio} \\
@@ -284,7 +287,6 @@ Biobío & 5,03 pp & 5,66 pp & +0,63 pp \\
 Valparaíso & 3,57 pp & 3,95 pp & +0,38 pp \\
 \bottomrule
 \end{tabular}
-\caption{Regiones con mayor aumento en efectividad de transferencias}
 \end{table}
 
 % ============================================================
@@ -295,6 +297,7 @@ Valparaíso & 3,57 pp & 3,95 pp & +0,38 pp \\
 
 \begin{table}[H]
 \centering
+\caption{Participación poblacional por composición del hogar}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Categoría} & \textbf{2017} & \textbf{2024} & \textbf{Cambio} \\
@@ -305,7 +308,6 @@ Solo adultos mayores & 5,59\% & 5,77\% & +0,18 pp \\
 \textbf{Solo edad laboral} & 13,64\% & \textbf{17,92\%} & \textbf{+4,28 pp} \\
 \bottomrule
 \end{tabular}
-\caption{Participación poblacional por composición del hogar}
 \end{table}
 
 La proporción de hogares con solo personas en edad laboral (24--64, sin niños ni adultos mayores) aumentó en 4,28 puntos porcentuales, reflejando cambios demográficos y posiblemente postergación de la maternidad/paternidad.
@@ -318,74 +320,76 @@ Esta sección analiza cómo el ingreso promedio per cápita cambió a través de
 
 \subsection{Crecimiento del Ingreso Total por Decil}
 
+Nota: Los deciles están definidos en base a la distribución del \textbf{ingreso autónomo}.
+
 \begin{table}[H]
 \centering
+\caption{Ingreso total promedio per cápita por decil (CLP, precios 2024)}
 \begin{tabular}{@{}crrr@{}}
 \toprule
 \textbf{Decil} & \textbf{2017 (adj.)} & \textbf{2024} & \textbf{Cambio} \\
 \midrule
-1 (más pobre) & 111.534 & 141.011 & \textbf{+26,4\%} \\
-2 & 172.535 & 221.021 & \textbf{+28,1\%} \\
-3 & 215.890 & 275.883 & \textbf{+27,8\%} \\
-4 & 258.262 & 330.271 & +27,9\% \\
-5 & 304.404 & 386.745 & +27,0\% \\
-6 & 359.338 & 451.587 & +25,7\% \\
-7 & 431.036 & 532.548 & +23,6\% \\
-8 & 535.356 & 649.377 & +21,3\% \\
-9 & 732.837 & 862.796 & +17,7\% \\
-10 (más rico) & 1.813.019 & 1.943.776 & +7,2\% \\
+1 (más pobre) & 157.222 & 237.807 & \textbf{+51,3\%} \\
+2 & 187.385 & 247.117 & \textbf{+31,9\%} \\
+3 & 230.425 & 293.611 & \textbf{+27,4\%} \\
+4 & 274.886 & 344.358 & +25,3\% \\
+5 & 315.314 & 401.367 & +27,3\% \\
+6 & 374.961 & 471.540 & +25,8\% \\
+7 & 446.590 & 571.221 & +27,9\% \\
+8 & 555.216 & 715.263 & +28,8\% \\
+9 & 768.212 & 1.006.468 & +31,0\% \\
+10 (más rico) & 1.899.884 & 2.256.871 & +18,8\% \\
 \bottomrule
 \end{tabular}
-\caption{Ingreso total promedio per cápita por decil (CLP, precios 2024)}
 \end{table}
 
-\textbf{Hallazgo clave}: El crecimiento de ingresos fue \textbf{fuertemente pro-pobre}. Los deciles inferiores experimentaron ganancias de 26--28\%, mientras el decil superior creció solo 7,2\%. Esto representa una compresión significativa de la distribución de ingresos.
+\textbf{Hallazgo clave}: El crecimiento de ingresos fue \textbf{fuertemente pro-pobre}. El decil inferior experimentó ganancias de 51\%, impulsado en gran parte por transferencias estatales, mientras el decil superior creció solo 19\%. Esto representa una compresión significativa de la distribución de ingresos.
 
 \subsection{Crecimiento del Ingreso Autónomo por Decil}
 
 \begin{table}[H]
 \centering
+\caption{Ingreso autónomo promedio per cápita por decil (CLP, precios 2024)}
 \begin{tabular}{@{}crrr@{}}
 \toprule
 \textbf{Decil} & \textbf{2017 (adj.)} & \textbf{2024} & \textbf{Cambio} \\
 \midrule
-1 (más pobre) & 97.896 & 122.384 & \textbf{+25,0\%} \\
-2 & 156.345 & 195.214 & \textbf{+24,9\%} \\
-3 & 197.737 & 248.600 & \textbf{+25,7\%} \\
-4 & 240.487 & 295.924 & +23,1\% \\
-5 & 285.076 & 348.054 & +22,1\% \\
-6 & 341.171 & 408.862 & +19,8\% \\
-7 & 415.935 & 492.178 & +18,3\% \\
-8 & 522.811 & 610.859 & +16,8\% \\
-9 & 722.737 & 833.368 & +15,3\% \\
-10 (más rico) & 1.807.877 & 1.931.629 & +6,8\% \\
+1 (más pobre) & 50.063 & 50.259 & \textbf{+0,4\%} \\
+2 & 113.552 & 131.421 & +15,7\% \\
+3 & 153.330 & 182.307 & +18,9\% \\
+4 & 193.783 & 234.684 & +21,1\% \\
+5 & 237.185 & 290.200 & +22,4\% \\
+6 & 289.602 & 360.751 & +24,6\% \\
+7 & 359.415 & 454.437 & +26,4\% \\
+8 & 461.249 & 590.804 & +28,1\% \\
+9 & 657.777 & 861.967 & +31,0\% \\
+10 (más rico) & 1.713.050 & 2.037.644 & +18,9\% \\
 \bottomrule
 \end{tabular}
-\caption{Ingreso autónomo promedio per cápita por decil (CLP, precios 2024)}
 \end{table}
 
-\textbf{Hallazgo clave}: El ingreso autónomo (excluyendo transferencias estatales) también mostró crecimiento pro-pobre, aunque ligeramente menos pronunciado que el ingreso total. Esto indica que las mejoras en ingresos de mercado---salarios, empleo, pensiones contributivas---beneficiaron a los deciles inferiores más que a los superiores.
+\textbf{Hallazgo clave}: El crecimiento del ingreso autónomo fue relativamente plano en la base (el decil 1 creció solo 0,4\%) pero más fuerte en los deciles medios y medio-altos. La combinación de crecimiento plano del ingreso autónomo en la base con fuerte crecimiento del ingreso total (51\%) revela el rol crucial de las transferencias estatales en elevar a los hogares más pobres.
 
 \subsection{Contribución de Transferencias por Decil}
 
-La diferencia entre el crecimiento del ingreso total y autónomo revela el rol de las transferencias estatales:
+La diferencia entre el crecimiento del ingreso total y autónomo revela el rol crítico de las transferencias estatales:
 
 \begin{table}[H]
 \centering
-\begin{tabular}{@{}ccc@{}}
+\caption{Comparación de crecimiento de ingreso total vs autónomo (deciles seleccionados)}
+\begin{tabular}{@{}cccc@{}}
 \toprule
-\textbf{Decil} & \textbf{Crec. Total} & \textbf{Crec. Autónomo} \\
+\textbf{Decil} & \textbf{Crec. Total} & \textbf{Crec. Autón.} & \textbf{Crec. Transf.} \\
 \midrule
-1 & +26,4\% & +25,0\% \\
-2 & +28,1\% & +24,9\% \\
-3 & +27,8\% & +25,7\% \\
-10 & +7,2\% & +6,8\% \\
+1 & +51,3\% & +0,4\% & +75,0\% \\
+2 & +31,9\% & +15,7\% & +56,7\% \\
+3 & +27,4\% & +18,9\% & +44,4\% \\
+10 & +18,8\% & +18,9\% & +19,1\% \\
 \bottomrule
 \end{tabular}
-\caption{Comparación de crecimiento de ingreso total vs autónomo (deciles seleccionados)}
 \end{table}
 
-La pequeña brecha entre el crecimiento total y autónomo (1--3 puntos porcentuales en deciles inferiores) sugiere que aunque las transferencias contribuyen a la reducción de pobreza, la mayor parte del crecimiento de ingresos provino de fuentes de mercado.
+La gran brecha entre el crecimiento total y autónomo en los deciles inferiores revela que las transferencias estatales son el principal impulsor del crecimiento de ingresos para los hogares más pobres. En el decil 1, el ingreso autónomo apenas creció (+0,4\%) mientras el ingreso total creció 51\%, con el ingreso por transferencias creciendo 75\%.
 
 % ============================================================
 \section{Análisis de Distribución de Ingresos}
@@ -393,31 +397,31 @@ La pequeña brecha entre el crecimiento total y autónomo (1--3 puntos porcentua
 
 \subsection{Hogares con Solo Adultos Mayores por Decil de Ingreso}
 
-Usando los límites de deciles de ingreso total, los hogares con solo adultos mayores se desplazaron hacia deciles más altos:
+Usando los límites de deciles de ingreso autónomo, los hogares con solo adultos mayores muestran una divergencia notable entre posiciones de ingreso total y autónomo:
 
 \begin{table}[H]
 \centering
+\caption{Distribución de hogares con solo adultos mayores por decil de ingreso}
 \begin{tabular}{@{}crrrr@{}}
 \toprule
 \textbf{Decil} & \textbf{Total 2017} & \textbf{Total 2024} & \textbf{Autón. 2017} & \textbf{Autón. 2024} \\
 \midrule
-1 (más pobre) & 0,85\% & 0,22\% & 10,51\% & 13,86\% \\
-2 & 2,08\% & 1,73\% & 5,39\% & 11,66\% \\
-3 & 4,93\% & 2,53\% & 7,05\% & 9,41\% \\
+1 (más pobre) & 0,28\% & 0,01\% & 18,23\% & 31,71\% \\
+2 & 0,22\% & 0,11\% & 8,05\% & 10,66\% \\
+3 & 1,05\% & 0,14\% & 9,48\% & 9,21\% \\
 \midrule
-\textbf{3 inferiores total} & \textbf{7,86\%} & \textbf{4,48\%} & \textbf{22,95\%} & \textbf{34,93\%} \\
+\textbf{3 inferiores total} & \textbf{1,55\%} & \textbf{0,26\%} & \textbf{35,76\%} & \textbf{51,58\%} \\
 \bottomrule
 \end{tabular}
-\caption{Distribución de hogares con solo adultos mayores por decil de ingreso}
 \end{table}
 
 \textbf{Observación crítica}:
 \begin{itemize}
     \item Cuando se mide por \textbf{ingreso total}, los hogares con solo adultos mayores subieron en la distribución (menos en deciles inferiores)
-    \item Cuando se mide por \textbf{ingreso autónomo}, los hogares con solo adultos mayores bajaron (más en deciles inferiores)
+    \item Cuando se mide por \textbf{ingreso autónomo}, los hogares con solo adultos mayores bajaron---más de la mitad (51,6\%) están ahora en los tres deciles inferiores
 \end{itemize}
 
-Esta divergencia revela que las transferencias estatales están haciendo más trabajo para elevar a los hogares de adultos mayores fuera de la pobreza. Sin transferencias, 34,9\% de los hogares con solo adultos mayores estarían en los tres deciles inferiores (aumentando desde 23\% en 2017). Las transferencias los mueven a deciles medios y superiores.
+Esta divergencia revela el rol masivo de las transferencias estatales. Sin transferencias, la posición de ingreso autónomo de los hogares de adultos mayores \textbf{se deterioró significativamente} entre 2017 y 2024. Las transferencias compensan completamente este deterioro y más.
 
 % ============================================================
 \section{Ingreso Laboral y Prima Educacional}
@@ -429,6 +433,8 @@ Esta sección analiza el ingreso laboral por hora para trabajadores empleados (d
 
 \begin{table}[H]
 \centering
+\caption{Ingreso laboral mediano por hora según cohorte de edad y educación (CLP/hora, precios 2024)}
+\label{tab:income_median}
 \small
 \begin{tabular}{@{}lrrrrrr@{}}
 \toprule
@@ -436,26 +442,24 @@ Esta sección analiza el ingreso laboral por hora para trabajadores empleados (d
 \cmidrule(lr){2-4} \cmidrule(lr){5-7}
 \textbf{Cohorte} & Total & Sin Univ & Univ & Total & Sin Univ & Univ \\
 \midrule
-26-30 & 729 & 586 & 1.002 & 866 & 722 & 1.050 \\
-31-35 & 820 & 621 & 1.230 & 1.010 & 722 & 1.283 \\
-36-40 & 807 & 615 & 1.342 & 1.050 & 722 & 1.443 \\
-41-46 & 729 & 615 & 1.366 & 1.050 & 722 & 1.575 \\
-46-50 & 729 & 598 & 1.366 & 945 & 722 & 1.575 \\
-51-55 & 697 & 583 & 1.458 & 866 & 722 & 1.443 \\
-56-60 & 685 & 574 & 1.458 & 825 & 722 & 1.540 \\
-61-65 & 692 & 583 & 1.528 & 787 & 722 & 1.575 \\
+26-30 & 3.156 & 2.536 & 4.339 & 3.750 & 3.125 & 4.545 \\
+31-35 & 3.550 & 2.689 & 5.325 & 4.375 & 3.125 & 5.556 \\
+36-40 & 3.495 & 2.662 & 5.809 & 4.545 & 3.125 & 6.250 \\
+41-46 & 3.156 & 2.662 & 5.917 & 4.545 & 3.125 & 6.818 \\
+46-50 & 3.156 & 2.589 & 5.917 & 4.091 & 3.125 & 6.818 \\
+51-55 & 3.018 & 2.524 & 6.311 & 3.750 & 3.125 & 6.250 \\
+56-60 & 2.966 & 2.485 & 6.311 & 3.571 & 3.125 & 6.667 \\
+61-65 & 2.998 & 2.524 & 6.616 & 3.409 & 3.125 & 6.818 \\
 \midrule
-\textbf{Promedio} & 736 & 597 & 1.344 & 925 & 722 & 1.436 \\
+\textbf{Promedio} & 3.187 & 2.584 & 5.818 & 4.004 & 3.125 & 6.215 \\
 \bottomrule
 \end{tabular}
-\caption{Ingreso laboral mediano por hora según cohorte de edad y educación (CLP/hora, precios 2024)}
-\label{tab:income_median}
 \end{table}
 
 \textbf{Observaciones clave}:
 \begin{itemize}
-    \item El ingreso mediano por hora para trabajadores \textbf{sin educación universitaria} aumentó de 597 a 722 CLP/hora (+21\%)
-    \item El ingreso mediano por hora para trabajadores \textbf{con educación universitaria} aumentó de 1.344 a 1.436 CLP/hora (+7\%)
+    \item El ingreso mediano por hora para trabajadores \textbf{sin educación universitaria} aumentó de 2.584 a 3.125 CLP/hora (+21\%)
+    \item El ingreso mediano por hora para trabajadores \textbf{con educación universitaria} aumentó de 5.818 a 6.215 CLP/hora (+7\%)
     \item Los trabajadores sin universidad vieron mayores ganancias proporcionales, estrechando la brecha educacional
 \end{itemize}
 
@@ -465,29 +469,29 @@ La prima educacional mide cuánto más ganan los trabajadores con educación uni
 
 \begin{table}[H]
 \centering
+\caption{Prima educacional universitaria sobre ingreso mediano por hora}
+\label{tab:premium_median}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Cohorte} & \textbf{2017} & \textbf{2024} & \textbf{Cambio} \\
 \midrule
-26-30 & 71,0\% & 45,4\% & --25,6 pp \\
-31-35 & 98,1\% & 77,7\% & --20,4 pp \\
-36-40 & 118,2\% & 99,9\% & --18,3 pp \\
-41-46 & 122,1\% & 118,1\% & --4,0 pp \\
-46-50 & 128,4\% & 118,1\% & --10,3 pp \\
-51-55 & 150,1\% & 99,9\% & --50,2 pp \\
+26-30 & 71,1\% & 45,4\% & --25,7 pp \\
+31-35 & 98,0\% & 77,8\% & --20,2 pp \\
+36-40 & 118,2\% & 100,0\% & --18,2 pp \\
+41-46 & 122,3\% & 118,2\% & --4,1 pp \\
+46-50 & 128,5\% & 118,2\% & --10,3 pp \\
+51-55 & 150,0\% & 100,0\% & --50,0 pp \\
 56-60 & 154,0\% & 113,3\% & --40,7 pp \\
-61-65 & 162,1\% & 118,1\% & --44,0 pp \\
+61-65 & 162,1\% & 118,2\% & --43,9 pp \\
 \midrule
-\textbf{Promedio} & 125,5\% & 98,8\% & \textbf{--26,7 pp} \\
+\textbf{Promedio} & 125,5\% & 98,9\% & \textbf{--26,6 pp} \\
 \bottomrule
 \end{tabular}
-\caption{Prima educacional universitaria sobre ingreso mediano por hora}
-\label{tab:premium_median}
 \end{table}
 
-\textbf{Hallazgo notable}: La prima educacional universitaria \textbf{disminuyó sustancialmente} en todas las cohortes de edad. En promedio, la prima mediana cayó de 125,5\% a 98,8\% (una caída de 26,7 puntos porcentuales). Esto significa:
+\textbf{Hallazgo notable}: La prima educacional universitaria \textbf{disminuyó sustancialmente} en todas las cohortes de edad. En promedio, la prima mediana cayó de 125,5\% a 98,9\% (una caída de 26,6 puntos porcentuales). Esto significa:
 \begin{itemize}
-    \item En 2017, los graduados universitarios ganaban 2,25$\times$ el salario por hora de los no graduados
+    \item En 2017, los graduados universitarios ganaban 2,26$\times$ el salario por hora de los no graduados
     \item En 2024, los graduados universitarios ganan 1,99$\times$ el salario por hora de los no graduados
 \end{itemize}
 
@@ -527,19 +531,36 @@ Las siguientes figuras muestran cómo la prima educacional cambió en diferentes
 
 \begin{table}[H]
 \centering
-\begin{tabular}{@{}lrrr@{}}
+\caption{Ingreso por hora y prima educacional por percentil (CLP/hora, precios 2024)}
+\label{tab:premium_summary}
+\small
+\begin{tabular}{@{}lrrrrrrrr@{}}
 \toprule
-\textbf{Percentil} & \textbf{Prima 2017} & \textbf{Prima 2024} & \textbf{Cambio} \\
+& \multicolumn{3}{c}{\textbf{2017 (adj.)}} & \multicolumn{3}{c}{\textbf{2024}} & \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+\textbf{Percentil} & Sin Univ & Univ & Prima & Sin Univ & Univ & Prima & \textbf{Cambio} \\
 \midrule
-P25 & 61,7\% & 40,8\% & --20,9 pp \\
-Mediana & 125,5\% & 98,8\% & --26,7 pp \\
-P75 & 179,6\% & 155,4\% & --24,2 pp \\
-P90 & 226,4\% & 211,8\% & --14,6 pp \\
+P25 & 2.130 & 3.445 & 61,7\% & 2.784 & 3.921 & 40,8\% & --20,9 pp \\
+Mediana & 2.584 & 5.818 & 125,2\% & 3.125 & 6.215 & 98,9\% & --26,3 pp \\
+P75 & 3.577 & 10.009 & 179,8\% & 4.028 & 10.306 & 155,9\% & --23,9 pp \\
+P90 & 5.219 & 17.054 & 226,8\% & 5.461 & 17.096 & 213,1\% & --13,7 pp \\
 \bottomrule
 \end{tabular}
-\caption{Prima educacional promedio por percentil (todas las cohortes)}
-\label{tab:premium_summary}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{income_by_education_2017_es.png}
+\caption{Ingreso laboral por hora según nivel educacional (2017, ajustado por inflación)}
+\label{fig:income_by_education_2017}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{income_by_education_2024_es.png}
+\caption{Ingreso laboral por hora según nivel educacional (2024)}
+\label{fig:income_by_education_2024}
+\end{figure}
 
 La prima educacional disminuyó en todos los puntos de la distribución, con las mayores caídas en la mediana y P75. Esto sugiere:
 \begin{itemize}
@@ -554,27 +575,27 @@ La prima educacional disminuyó en todos los puntos de la distribución, con las
 
 \subsection{El Sistema de Transferencias de Chile para Adultos Mayores es Altamente Efectivo}
 
-Las transferencias estatales eliminan \textbf{98,7\%} de la pobreza autónoma entre hogares con solo adultos mayores, reduciendo la pobreza por ingreso total a solo 0,12\%. Esta es una política focalizada notablemente exitosa.
+Las transferencias estatales eliminan \textbf{99,7\%} de la pobreza autónoma entre hogares con solo adultos mayores, reduciendo la pobreza por ingreso total a solo 0,12\%. Esta es una política focalizada notablemente exitosa.
 
-\subsection{La Reducción General de Pobreza fue Impulsada por Mejoras en Ingresos de Mercado}
+\subsection{Las Transferencias son Centrales para la Reducción de Pobreza}
 
-La disminución paralela en pobreza total y autónoma (--5,2 pp cada una) indica que el crecimiento económico, el empleo y los salarios de mercado mejoraron sustancialmente entre 2017 y 2024.
+Las transferencias estatales eliminan aproximadamente 15 puntos porcentuales de pobreza---reduciendo la tasa de pobreza de 25\% (autónoma) a 4,6\% (ingreso total). La eficiencia de las transferencias mejoró de 60,8\% a 76,2\% de la pobreza autónoma eliminada.
 
-\subsection{La Eficiencia de las Transferencias Casi se Duplicó}
+\subsection{La Pobreza Autónoma de Adultos Mayores Aumentó, Pero las Transferencias Compensan}
 
-Aunque el impacto absoluto de las transferencias en reducción de pobreza permaneció constante ($\sim$3,8 pp), las transferencias ahora eliminan una proporción mucho mayor de la pobreza autónoma (45\% vs 28\%), ya que la base de pobres autónomos disminuyó.
+La pobreza autónoma entre hogares con solo adultos mayores \textbf{aumentó} de 31,7\% a 41,7\%. Sin embargo, el sistema de transferencias compensa completamente, reduciendo la pobreza por ingreso total a casi cero. Más de la mitad de los hogares con solo adultos mayores estarían en los tres deciles inferiores de ingreso sin transferencias.
 
 \subsection{Convergencia Regional}
 
 Las regiones históricamente pobres (La Araucanía, Ñuble, Los Lagos) mostraron las mayores reducciones de pobreza, sugiriendo cierta convergencia regional en niveles de vida.
 
-\subsection{Creciente Dependencia de los Adultos Mayores en Transferencias}
+\subsection{Crecimiento Pro-Pobre de Ingresos, Especialmente a Través de Transferencias}
 
-Sin transferencias, más hogares de adultos mayores caerían en pobreza en 2024 que en 2017 (medido por distribución de ingreso autónomo). El sistema de transferencias está compensando lo que de otra manera sería un deterioro de la posición de hogares de adultos mayores en la distribución de ingresos.
+El decil inferior vio un crecimiento de 51\% en ingreso total, pero solo 0,4\% en ingreso autónomo. Esto revela que las transferencias estatales---no las mejoras en ingresos de mercado---impulsaron el crecimiento de ingresos para los hogares más pobres.
 
 \subsection{Disminución de Retornos a la Educación Universitaria}
 
-La prima salarial universitaria cayó de 125\% a 99\% en la mediana, impulsada por un crecimiento salarial más rápido para trabajadores sin universidad (+21\%) comparado con graduados universitarios (+7\%). Esta compresión de la prima educacional ocurrió en todas las cohortes de edad y en todos los puntos de la distribución salarial, sugiriendo cambios estructurales en el mercado laboral que favorecen a trabajadores menos educados.
+La prima salarial universitaria cayó de 126\% a 99\% en la mediana, impulsada por un crecimiento salarial más rápido para trabajadores sin universidad (+21\%) comparado con graduados universitarios (+7\%). Esta compresión de la prima educacional ocurrió en todas las cohortes de edad y en todos los puntos de la distribución salarial.
 
 % ============================================================
 \section{Fuentes de Datos y Archivos}
@@ -595,7 +616,9 @@ La prima salarial universitaria cayó de 125\% a 99\% en la mediana, impulsada p
 \begin{enumerate}
     \item Todas las tasas de pobreza están ponderadas usando factores de expansión de la encuesta (\texttt{expr})
     \item Las líneas de pobreza se basan en el estándar de \$8,3 PPP por día del Banco Mundial (pobreza moderada)
-    \item Metodología consistente en ambos años: \texttt{ytotcorh/numper} para ingreso total, \texttt{(ytotcorh-ysubh)/numper} para ingreso autónomo
+    \item Metodología consistente en ambos años: \texttt{ytotcorh/numper} para ingreso total, \texttt{yautcorh/numper} para ingreso autónomo
+    \item El ingreso autónomo (\texttt{yautcorh}) incluye solo ingreso laboral, trabajo independiente y pensiones contributivas---excluye todas las transferencias estatales
+    \item Los deciles de ingreso están definidos en base a la distribución del ingreso autónomo
     \item El análisis regional cubre las 16 regiones chilenas
     \item El análisis comunal está limitado a la Región Metropolitana
 \end{enumerate}
@@ -605,7 +628,8 @@ La prima salarial universitaria cayó de 125\% a 99\% en la mediana, impulsada p
 \begin{center}
 \rule{0.5\textwidth}{0.4pt}\\[0.5cm]
 \textit{Informe generado: Enero 2026}\\
-\textit{Datos: CASEN 2017 y CASEN 2024, Ministerio de Desarrollo Social y Familia, Chile}
+\textit{Datos: CASEN 2017 y CASEN 2024, Ministerio de Desarrollo Social y Familia, Chile}\\[0.3cm]
+Código y datos: \href{https://github.com/ceggersp/AnalisisCASEN}{github.com/ceggersp/AnalisisCASEN}
 \end{center}
 
 \end{document}

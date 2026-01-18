@@ -1,6 +1,10 @@
 # CASEN Analysis: Income, Poverty, and Inequality in Chile (2017-2024)
 
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/ceggersp/AnalisisCASEN)
+
 Comprehensive analysis of income, poverty, and inequality in Chile using CASEN (Encuesta de Caracterización Socioeconómica Nacional) survey data from 2017 and 2024.
+
+**Repository**: https://github.com/ceggersp/AnalisisCASEN
 
 ## Key Findings
 

@@ -371,4 +371,213 @@ generate_latex_income_table(table1_median, "Median hourly labor income by age co
 cat("\n% Premium Tables\n\n")
 generate_latex_premium_table(premium_median, "University education premium on median hourly income (\\%)", "tab:premium_median")
 
+# ===========================================================================
+# NEW TABLE: INCOME BY PERCENTILE WITH PREMIA (Table 17)
+# ===========================================================================
+
+cat("\n\n========================================\n")
+cat("TABLE 17: Income by Percentile with Premia\n")
+cat("========================================\n\n")
+
+# Create summary table across percentiles (average across cohorts)
+create_percentile_summary <- function() {
+  # Get average income across cohorts for each percentile
+  get_avg <- function(data, pct_name) {
+    d2017 <- data %>% filter(year == 2017) %>%
+      summarise(NoUniv = mean(`No University`), Univ = mean(University))
+    d2024 <- data %>% filter(year == 2024) %>%
+      summarise(NoUniv = mean(`No University`), Univ = mean(University))
+
+    tibble(
+      Percentile = pct_name,
+      NoUniv_2017 = round(d2017$NoUniv),
+      Univ_2017 = round(d2017$Univ),
+      Premium_2017 = round(100 * (d2017$Univ / d2017$NoUniv - 1), 1),
+      NoUniv_2024 = round(d2024$NoUniv),
+      Univ_2024 = round(d2024$Univ),
+      Premium_2024 = round(100 * (d2024$Univ / d2024$NoUniv - 1), 1)
+    )
+  }
+
+  bind_rows(
+    get_avg(p25_data, "P25"),
+    get_avg(median_data, "Median"),
+    get_avg(p75_data, "P75"),
+    get_avg(p90_data, "P90")
+  ) %>%
+    mutate(Premium_Change = Premium_2024 - Premium_2017)
+}
+
+table17 <- create_percentile_summary()
+print(table17)
+
+# Generate LaTeX for Table 17
+cat("\n% LaTeX for Table 17\n\n")
+cat("\\begin{table}[H]\n")
+cat("\\centering\n")
+cat("\\caption{Average education premium by percentile (all cohorts)}\n")
+cat("\\label{tab:premium_summary}\n")
+cat("\\begin{tabular}{@{}lrrrrrrrr@{}}\n")
+cat("\\toprule\n")
+cat("& \\multicolumn{3}{c}{\\textbf{2017 (adj.)}} & \\multicolumn{3}{c}{\\textbf{2024}} & \\\\\n")
+cat("\\cmidrule(lr){2-4} \\cmidrule(lr){5-7}\n")
+cat("\\textbf{Percentile} & No Univ & Univ & Premium & No Univ & Univ & Premium & \\textbf{Change} \\\\\n")
+cat("\\midrule\n")
+for (i in 1:nrow(table17)) {
+  row <- table17[i,]
+  cat(sprintf("%s & %s & %s & %.1f\\%% & %s & %s & %.1f\\%% & %.1f pp \\\\\n",
+              row$Percentile,
+              format(row$NoUniv_2017, big.mark = ","),
+              format(row$Univ_2017, big.mark = ","),
+              row$Premium_2017,
+              format(row$NoUniv_2024, big.mark = ","),
+              format(row$Univ_2024, big.mark = ","),
+              row$Premium_2024,
+              row$Premium_Change))
+}
+cat("\\bottomrule\n")
+cat("\\end{tabular}\n")
+cat("\\end{table}\n\n")
+
+# ===========================================================================
+# NEW BAR GRAPHS: Non-Univ vs Univ Income by Percentile
+# ===========================================================================
+
+cat("\nGenerating income comparison bar graphs...\n")
+
+# Prepare data for income comparison plots
+prepare_income_comparison_data <- function(year_val) {
+  bind_rows(
+    p25_data %>% filter(year == year_val) %>%
+      summarise(NoUniv = mean(`No University`), Univ = mean(University)) %>%
+      mutate(Percentile = "P25"),
+    median_data %>% filter(year == year_val) %>%
+      summarise(NoUniv = mean(`No University`), Univ = mean(University)) %>%
+      mutate(Percentile = "Median"),
+    p75_data %>% filter(year == year_val) %>%
+      summarise(NoUniv = mean(`No University`), Univ = mean(University)) %>%
+      mutate(Percentile = "P75"),
+    p90_data %>% filter(year == year_val) %>%
+      summarise(NoUniv = mean(`No University`), Univ = mean(University)) %>%
+      mutate(Percentile = "P90")
+  ) %>%
+    pivot_longer(cols = c(NoUniv, Univ), names_to = "Education", values_to = "Income") %>%
+    mutate(
+      Percentile = factor(Percentile, levels = c("P25", "Median", "P75", "P90")),
+      Education = factor(Education, levels = c("NoUniv", "Univ"),
+                        labels = c("No University", "University"))
+    )
+}
+
+income_2017 <- prepare_income_comparison_data(2017)
+income_2024 <- prepare_income_comparison_data(2024)
+
+# Create income comparison plot function (English)
+create_income_comparison_plot <- function(data, year, title, subtitle, filename) {
+  p <- ggplot(data, aes(x = Percentile, y = Income, fill = Education)) +
+    geom_bar(stat = "identity", position = position_dodge(width = 0.8), width = 0.7) +
+    geom_text(aes(label = format(round(Income), big.mark = ",")),
+              position = position_dodge(width = 0.8),
+              vjust = -0.5, size = 4.5) +
+    scale_fill_manual(values = c("No University" = "#6B7B8C", "University" = "#A3B1BF")) +
+    labs(
+      title = title,
+      subtitle = subtitle,
+      x = "Percentile",
+      y = "Hourly Income (CLP/hour)",
+      fill = "Education"
+    ) +
+    theme_minimal(base_size = 14) +
+    theme(
+      plot.title = element_text(face = "bold", size = 18),
+      plot.subtitle = element_text(size = 14, color = "gray40"),
+      axis.title = element_text(size = 14),
+      axis.text = element_text(size = 12),
+      legend.position = "bottom",
+      legend.text = element_text(size = 12),
+      legend.title = element_text(size = 13),
+      panel.grid.major.x = element_blank()
+    ) +
+    ylim(0, max(data$Income) * 1.15)
+
+  ggsave(filename, p, width = 10, height = 6, dpi = 300)
+  cat("Saved:", filename, "\n")
+  p
+}
+
+# Create income comparison plot function (Spanish)
+create_income_comparison_plot_es <- function(data, year, title, subtitle, filename) {
+  data_es <- data %>%
+    mutate(Educacion = factor(Education,
+                              levels = c("No University", "University"),
+                              labels = c("Sin Universidad", "Universidad")))
+
+  p <- ggplot(data_es, aes(x = Percentile, y = Income, fill = Educacion)) +
+    geom_bar(stat = "identity", position = position_dodge(width = 0.8), width = 0.7) +
+    geom_text(aes(label = format(round(Income), big.mark = ",")),
+              position = position_dodge(width = 0.8),
+              vjust = -0.5, size = 4.5) +
+    scale_fill_manual(values = c("Sin Universidad" = "#6B7B8C", "Universidad" = "#A3B1BF")) +
+    scale_x_discrete(labels = c("P25" = "P25", "Median" = "Mediana", "P75" = "P75", "P90" = "P90")) +
+    labs(
+      title = title,
+      subtitle = subtitle,
+      x = "Percentil",
+      y = "Ingreso por Hora (CLP/hora)",
+      fill = "Educación"
+    ) +
+    theme_minimal(base_size = 14) +
+    theme(
+      plot.title = element_text(face = "bold", size = 18),
+      plot.subtitle = element_text(size = 14, color = "gray40"),
+      axis.title = element_text(size = 14),
+      axis.text = element_text(size = 12),
+      legend.position = "bottom",
+      legend.text = element_text(size = 12),
+      legend.title = element_text(size = 13),
+      panel.grid.major.x = element_blank()
+    ) +
+    ylim(0, max(data$Income) * 1.15)
+
+  ggsave(filename, p, width = 10, height = 6, dpi = 300)
+  cat("Saved:", filename, "\n")
+  p
+}
+
+# Generate English plots
+p_income_2017_en <- create_income_comparison_plot(
+  income_2017, 2017,
+  "Hourly Labor Income by Education (2017)",
+  "Average across age cohorts, inflation-adjusted to 2024 CLP",
+  "reports/income_by_education_2017.png"
+)
+
+p_income_2024_en <- create_income_comparison_plot(
+  income_2024, 2024,
+  "Hourly Labor Income by Education (2024)",
+  "Average across age cohorts",
+  "reports/income_by_education_2024.png"
+)
+
+# Generate Spanish plots
+p_income_2017_es <- create_income_comparison_plot_es(
+  income_2017, 2017,
+  "Ingreso Laboral por Hora según Educación (2017)",
+  "Promedio entre cohortes de edad, ajustado por inflación a CLP 2024",
+  "reports/income_by_education_2017_es.png"
+)
+
+p_income_2024_es <- create_income_comparison_plot_es(
+  income_2024, 2024,
+  "Ingreso Laboral por Hora según Educación (2024)",
+  "Promedio entre cohortes de edad",
+  "reports/income_by_education_2024_es.png"
+)
+
+# Save updated table to Excel
+addWorksheet(wb, "Premium_Summary")
+writeData(wb, "Premium_Summary", table17)
+saveWorkbook(wb, "output/labor_income_tables.xlsx", overwrite = TRUE)
+cat("Updated: output/labor_income_tables.xlsx\n")
+
 cat("\nDone!\n")

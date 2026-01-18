@@ -56,13 +56,13 @@ casen_2024 <- read_dta("harmonized_data/casen_subset_2024.dta")
 casen_2017 <- casen_2017 %>%
   mutate(
     ypch_total = ytotcorh / numper,
-    ypch_aut = (ytotcorh - ysubh) / numper
+    ypch_aut = yautcorh/numper #(ytotcorh - ysubh) / numper
   )
 
 casen_2024 <- casen_2024 %>%
   mutate(
     ypch_total = ytotcorh / numper,
-    ypch_aut = (ytotcorh - ysubh) / numper
+    ypch_aut = yautcorh/numper
   )
 
 cat("Raw survey data loaded and income variables calculated.\n\n")
@@ -389,9 +389,9 @@ assign_deciles <- function(data, income_var, weight_var) {
   return(data)
 }
 
-# Assign deciles based on TOTAL income for each year
-casen_2017 <- assign_deciles(casen_2017, "ypch_total", "expr")
-casen_2024 <- assign_deciles(casen_2024, "ypch_total", "expr")
+# Assign deciles based on AUTONOMOUS income for each year
+casen_2017 <- assign_deciles(casen_2017, "ypch_aut", "expr")
+casen_2024 <- assign_deciles(casen_2024, "ypch_aut", "expr")
 
 # Calculate average incomes by decile for 2017
 decile_income_2017 <- casen_2017 %>%
@@ -400,12 +400,14 @@ decile_income_2017 <- casen_2017 %>%
   summarise(
     Avg_Total_2017 = weighted_mean(ypch_total, expr),
     Avg_Aut_2017 = weighted_mean(ypch_aut, expr),
+    Avg_Sub_2017 = weighted_mean(ypch_total - ypch_aut, expr),
     .groups = "drop"
   ) %>%
   mutate(
     # Convert to 2024 prices
     Avg_Total_2017_adj = Avg_Total_2017 * inflation_factor,
-    Avg_Aut_2017_adj = Avg_Aut_2017 * inflation_factor
+    Avg_Aut_2017_adj = Avg_Aut_2017 * inflation_factor,
+    Avg_Sub_2017_adj = Avg_Sub_2017 * inflation_factor
   )
 
 # Calculate average incomes by decile for 2024
@@ -415,6 +417,7 @@ decile_income_2024 <- casen_2024 %>%
   summarise(
     Avg_Total_2024 = weighted_mean(ypch_total, expr),
     Avg_Aut_2024 = weighted_mean(ypch_aut, expr),
+    Avg_Sub_2024 = weighted_mean(ypch_total - ypch_aut, expr),
     .groups = "drop"
   )
 
@@ -431,10 +434,15 @@ decile_avg_income <- decile_income_2017 %>%
     Aut_2017 = round(Avg_Aut_2017_adj, 0),
     Aut_2024 = round(Avg_Aut_2024, 0),
     Aut_Change = round(Avg_Aut_2024 - Avg_Aut_2017_adj, 0),
-    Aut_Change_Pct = round(100 * (Avg_Aut_2024 - Avg_Aut_2017_adj) / Avg_Aut_2017_adj, 1)
+    Aut_Change_Pct = round(100 * (Avg_Aut_2024 - Avg_Aut_2017_adj) / Avg_Aut_2017_adj, 1),
+    Sub_2017 = round(Avg_Sub_2017_adj, 0),
+    Sub_2024 = round(Avg_Sub_2024, 0),
+    Sub_Change = round(Avg_Sub_2024 - Avg_Sub_2017_adj, 0),
+    Sub_Change_Pct = round(100 * (Avg_Sub_2024 - Avg_Sub_2017_adj) / Avg_Sub_2017_adj, 1)
   ) %>%
   select(Decile, Total_2017, Total_2024, Total_Change, Total_Change_Pct,
-         Aut_2017, Aut_2024, Aut_Change, Aut_Change_Pct) %>%
+         Aut_2017, Aut_2024, Aut_Change, Aut_Change_Pct,
+         Sub_2017, Sub_2024, Sub_Change, Sub_Change_Pct) %>%
   arrange(Decile)
 
 cat("Average per capita income by decile (2024 prices, CLP):\n\n")

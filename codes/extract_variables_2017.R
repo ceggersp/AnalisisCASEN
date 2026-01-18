@@ -28,6 +28,7 @@ vars_needed <- c(
   # Income variables (household level)
   "ytotcorh",     # Total household income (corrected)
   "ysubh",        # Household subsidies (state transfers)
+  "yautcorh",     # Household autonomous income (corrected)
 
   # Labor income variables (individual level)
   "yoprcor",      # Labor income from main occupation (corrected)

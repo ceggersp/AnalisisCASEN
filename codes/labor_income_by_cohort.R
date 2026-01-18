@@ -72,7 +72,7 @@ calculate_hourly_income <- function(data, year, inflation_factor = 1) {
   # Calculate hourly income (monthly income / (hours per week * 4.33 weeks))
   employed <- employed %>%
     mutate(
-      hourly_income = yoprcor / (y2_hrs * 4.33),
+      hourly_income = yoprcor / (y2_hrs),
       # Adjust 2017 income to 2024 prices
       hourly_income_adj = hourly_income * inflation_factor,
       # Create age cohorts

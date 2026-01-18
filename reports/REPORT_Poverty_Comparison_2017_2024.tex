@@ -78,14 +78,16 @@ This report analyzes changes in income, poverty, and inequality in Chile between
 \textbf{Key Findings}:
 
 \begin{itemize}
-    \item \textbf{Poverty reduction}: Total income poverty fell from \textbf{9.8\% to 4.6\%}, with state transfer efficiency nearly doubling (from 27.8\% to 45.4\% of autonomous poverty eliminated). Poverty among elderly-only households is virtually eliminated (0.12\%).
+    \item \textbf{Poverty reduction}: Total income poverty fell from \textbf{9.8\% to 4.6\%}, while autonomous income poverty fell from 25.0\% to 19.3\%. State transfer efficiency improved substantially (from 60.8\% to 76.2\% of autonomous poverty eliminated). Poverty among elderly-only households is virtually eliminated (0.12\%).
 
-    \item \textbf{Pro-poor income growth}: Income growth was strongly progressive---the bottom decile grew 26\% while the top decile grew only 7\% (inflation-adjusted). This pattern held for both total and autonomous income, indicating market-driven compression.
+    \item \textbf{Massive transfer impact on elderly}: Autonomous poverty among elderly-only households increased from 31.7\% to 41.7\%, yet total income poverty fell to near zero (0.12\%). State transfers now eliminate 99.7\% of autonomous poverty among elderly-only households.
 
-    \item \textbf{Declining education premium}: The university wage premium fell substantially, from 125\% to 99\% at the median. Hourly wages for non-university workers grew 21\% while university graduates saw only 7\% growth. This represents a significant narrowing of education-based inequality.
+    \item \textbf{Pro-poor income growth}: Income growth was strongly progressive---the bottom decile grew 51\% in total income while the top decile grew only 19\% (inflation-adjusted). Autonomous income also showed pro-poor patterns.
+
+    \item \textbf{Declining education premium}: The university wage premium fell substantially, from 126\% to 99\% at the median. Hourly wages for non-university workers grew 21\% while university graduates saw only 7\% growth.
 \end{itemize}
 
-Together, these findings suggest Chile experienced broad-based income compression between 2017 and 2024, with gains concentrated among lower-income households and less-educated workers.
+Together, these findings suggest Chile experienced broad-based income compression between 2017 and 2024, driven by both expanding state transfers and market income improvements concentrated among lower-income households.
 
 % ============================================================
 \section{Methodology}
@@ -95,9 +97,9 @@ Together, these findings suggest Chile experienced broad-based income compressio
 
 \begin{itemize}
     \item \textbf{Total income}: \texttt{ytotcorh / numper} (corrected household income per capita, including all sources)
-    \item \textbf{Autonomous income}: \texttt{(ytotcorh - ysubh) / numper} (excluding state transfers)
-    \item \textbf{State transfers (ysubh)}: Non-contributory pensions + subsidies
-    \item \textbf{Contributory pensions (AFP)}: Remain in autonomous income (self-financed)
+    \item \textbf{Autonomous income}: \texttt{yautcorh / numper} (includes only labor income, self-employment, and contributory pensions---excludes all state transfers)
+    \item \textbf{State transfers}: Non-contributory pensions (PGU, PBS) + subsidies + other government transfers
+    \item \textbf{Contributory pensions (AFP)}: Included in autonomous income (self-financed)
 \end{itemize}
 
 \subsection{Poverty Lines}
@@ -113,6 +115,7 @@ Both poverty lines are equivalent to the World Bank's \$8.3 PPP per day standard
 
 \begin{table}[H]
 \centering
+\caption{Household age composition categories}
 \begin{tabular}{@{}ll@{}}
 \toprule
 \textbf{Category} & \textbf{Definition} \\
@@ -123,7 +126,6 @@ Only65 & Households where ALL members are aged 65+ \\
 WorkAge & Households with only members aged 24--64 \\
 \bottomrule
 \end{tabular}
-\caption{Household age composition categories}
 \end{table}
 
 % ============================================================
@@ -134,36 +136,36 @@ WorkAge & Households with only members aged 24--64 \\
 
 \begin{table}[H]
 \centering
+\caption{National poverty rates comparison}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Metric} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
 \midrule
 Total income poverty & 9.80\% & 4.59\% & \textbf{--5.21 pp} \\
-Autonomous income poverty & 13.57\% & 8.41\% & \textbf{--5.16 pp} \\
-Transfer impact & 3.77 pp & 3.82 pp & +0.05 pp \\
+Autonomous income poverty & 25.01\% & 19.32\% & \textbf{--5.69 pp} \\
+Transfer impact & 15.21 pp & 14.73 pp & --0.48 pp \\
 \bottomrule
 \end{tabular}
-\caption{National poverty rates comparison}
 \end{table}
 
-Both total and autonomous poverty decreased by similar magnitudes ($\sim$5 pp), suggesting that poverty reduction was driven primarily by improvements in market income (wages, self-employment, contributory pensions) rather than expansion of state transfers.
+State transfers have a massive impact on poverty reduction, eliminating approximately 15 percentage points of poverty in both years. Both total and autonomous poverty decreased by similar magnitudes ($\sim$5 pp), indicating that market income improvements and transfer effectiveness both contributed to poverty reduction.
 
-\subsection{State Transfer Efficiency Doubled}
+\subsection{State Transfer Efficiency Improved}
 
 \begin{table}[H]
 \centering
+\caption{Transfer efficiency comparison}
 \begin{tabular}{@{}lrr@{}}
 \toprule
 \textbf{Metric} & \textbf{2017} & \textbf{2024} \\
 \midrule
-Transfer impact (pp) & 3.77 & 3.82 \\
-\% of autonomous poverty eliminated & \textbf{27.8\%} & \textbf{45.4\%} \\
+Transfer impact (pp) & 15.21 & 14.73 \\
+\% of autonomous poverty eliminated & \textbf{60.8\%} & \textbf{76.2\%} \\
 \bottomrule
 \end{tabular}
-\caption{Transfer efficiency comparison}
 \end{table}
 
-Although the absolute transfer impact remained nearly constant (3.77 pp vs 3.82 pp), efficiency increased dramatically because autonomous poverty fell. State transfers now eliminate \textbf{45.4\%} of pre-transfer poverty, compared to only 27.8\% in 2017.
+State transfers eliminate a substantial share of autonomous poverty. The efficiency improved from 60.8\% to 76.2\%, meaning transfers now eliminate over three-quarters of pre-transfer poverty. This improvement occurred even as the absolute impact remained roughly constant ($\sim$15 pp).
 
 \subsection{Near-Elimination of Poverty Among the Elderly}
 
@@ -171,31 +173,32 @@ The most striking finding concerns \textbf{elderly-only households} (Only65):
 
 \begin{table}[H]
 \centering
+\caption{Elderly-only households poverty indicators}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Metric} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
 \midrule
 Total income poverty & 0.85\% & \textbf{0.12\%} & --0.73 pp \\
-Autonomous income poverty & 10.45\% & 9.34\% & --1.11 pp \\
-Transfer impact & 9.60 pp & 9.22 pp & --0.38 pp \\
-\textbf{Transfer efficiency} & 91.9\% & \textbf{98.7\%} & +6.8 pp \\
+Autonomous income poverty & 31.71\% & 41.72\% & +10.01 pp \\
+Transfer impact & 30.86 pp & 41.60 pp & +10.74 pp \\
+\textbf{Transfer efficiency} & 97.3\% & \textbf{99.7\%} & +2.4 pp \\
 \bottomrule
 \end{tabular}
-\caption{Elderly-only households poverty indicators}
 \end{table}
 
 \textbf{Interpretation}:
 \begin{itemize}
-    \item Without state transfers, $\sim$9--10\% of elderly-only households would be poor (similar in both years)
-    \item State transfers now eliminate \textbf{98.7\%} of autonomous poverty among elderly-only households
-    \item Total income poverty among elderly-only households has been virtually eliminated (0.12\%)
-    \item This represents one of the most effective targeted transfer programs in Latin America
+    \item Without state transfers, autonomous poverty among elderly-only households \textbf{increased} from 31.7\% to 41.7\%
+    \item However, state transfers now eliminate \textbf{99.7\%} of autonomous poverty among elderly-only households
+    \item Total income poverty has been virtually eliminated (0.12\%)
+    \item This represents one of the most effective targeted transfer programs in Latin America, compensating for deteriorating autonomous income positions
 \end{itemize}
 
 \subsection{Poverty Reduction Across All Household Types}
 
 \begin{table}[H]
 \centering
+\caption{Total income poverty by household type}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Household Type} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
@@ -206,7 +209,6 @@ Elderly-only & 0.85\% & 0.12\% & --0.73 pp \\
 Working-age only & 2.78\% & 1.59\% & --1.19 pp \\
 \bottomrule
 \end{tabular}
-\caption{Total income poverty by household type}
 \end{table}
 
 All household types experienced poverty reduction, with households without elderly members showing the largest absolute decrease (--5.78 pp).
@@ -215,21 +217,21 @@ All household types experienced poverty reduction, with households without elder
 
 \begin{table}[H]
 \centering
+\caption{Transfer efficiency (\% of autonomous poverty eliminated) by household type}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Household Type} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
 \midrule
-Overall & 27.8\% & 45.4\% & +17.6 pp \\
-No elderly & 17.6\% & 26.0\% & +8.4 pp \\
-At least 1 elderly & 55.3\% & 82.9\% & +27.6 pp \\
-\textbf{Elderly-only} & 91.9\% & \textbf{98.7\%} & +6.8 pp \\
-Working-age only & 28.5\% & 31.5\% & +3.0 pp \\
+Overall & 60.8\% & 76.2\% & +15.4 pp \\
+No elderly & 52.4\% & 64.2\% & +11.8 pp \\
+At least 1 elderly & 79.2\% & 93.8\% & +14.6 pp \\
+\textbf{Elderly-only} & 97.3\% & \textbf{99.7\%} & +2.4 pp \\
+Working-age only & 70.6\% & 79.7\% & +9.1 pp \\
 \bottomrule
 \end{tabular}
-\caption{Transfer efficiency (\% of autonomous poverty eliminated) by household type}
 \end{table}
 
-\textbf{Key insight}: Households with elderly members benefit most from state transfers. For households with at least one elderly member, transfers now eliminate 82.9\% of autonomous poverty, up from 55.3\% in 2017.
+\textbf{Key insight}: Transfer efficiency improved across all household types. For households with at least one elderly member, transfers now eliminate 93.8\% of autonomous poverty, up from 79.2\% in 2017. For elderly-only households, efficiency reaches 99.7\%.
 
 % ============================================================
 \section{Regional Analysis}
@@ -239,6 +241,7 @@ Working-age only & 28.5\% & 31.5\% & +3.0 pp \\
 
 \begin{table}[H]
 \centering
+\caption{Regions with largest poverty reduction}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Region} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
@@ -250,7 +253,6 @@ Coquimbo & 14.89\% & 6.47\% & --8.42 pp \\
 Biobío & 13.31\% & 4.99\% & --8.32 pp \\
 \bottomrule
 \end{tabular}
-\caption{Regions with largest poverty reduction}
 \end{table}
 
 Historically poor regions in southern Chile (La Araucanía, Los Lagos) and central-south Chile (Ñuble, Maule) showed the largest improvements.
@@ -259,6 +261,7 @@ Historically poor regions in southern Chile (La Araucanía, Los Lagos) and centr
 
 \begin{table}[H]
 \centering
+\caption{Region with poverty increase}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Region} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
@@ -266,7 +269,6 @@ Historically poor regions in southern Chile (La Araucanía, Los Lagos) and centr
 Magallanes & 2.25\% & 2.43\% & +0.18 pp \\
 \bottomrule
 \end{tabular}
-\caption{Region with poverty increase}
 \end{table}
 
 Magallanes was the only region where poverty increased slightly, though it remains among the lowest poverty regions.
@@ -275,6 +277,7 @@ Magallanes was the only region where poverty increased slightly, though it remai
 
 \begin{table}[H]
 \centering
+\caption{Regions with largest increase in transfer effectiveness}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Region} & \textbf{Impact 2017} & \textbf{Impact 2024} & \textbf{Change} \\
@@ -284,7 +287,6 @@ Biobío & 5.03 pp & 5.66 pp & +0.63 pp \\
 Valparaíso & 3.57 pp & 3.95 pp & +0.38 pp \\
 \bottomrule
 \end{tabular}
-\caption{Regions with largest increase in transfer effectiveness}
 \end{table}
 
 % ============================================================
@@ -295,6 +297,7 @@ Valparaíso & 3.57 pp & 3.95 pp & +0.38 pp \\
 
 \begin{table}[H]
 \centering
+\caption{Population share by household composition}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Category} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
@@ -305,7 +308,6 @@ Elderly-only & 5.59\% & 5.77\% & +0.18 pp \\
 \textbf{Working-age only} & 13.64\% & \textbf{17.92\%} & \textbf{+4.28 pp} \\
 \bottomrule
 \end{tabular}
-\caption{Population share by household composition}
 \end{table}
 
 The share of working-age only households (24--64, no children or elderly) increased by 4.28 percentage points, reflecting demographic changes and possibly delayed childbearing.
@@ -318,74 +320,76 @@ This section analyzes how average per capita income changed across the income di
 
 \subsection{Total Income Growth by Decile}
 
+Note: Deciles are defined based on \textbf{autonomous income} distribution.
+
 \begin{table}[H]
 \centering
+\caption{Average total per capita income by decile (CLP, 2024 prices)}
 \begin{tabular}{@{}crrr@{}}
 \toprule
 \textbf{Decile} & \textbf{2017 (adj.)} & \textbf{2024} & \textbf{Change} \\
 \midrule
-1 (poorest) & 111,534 & 141,011 & \textbf{+26.4\%} \\
-2 & 172,535 & 221,021 & \textbf{+28.1\%} \\
-3 & 215,890 & 275,883 & \textbf{+27.8\%} \\
-4 & 258,262 & 330,271 & +27.9\% \\
-5 & 304,404 & 386,745 & +27.0\% \\
-6 & 359,338 & 451,587 & +25.7\% \\
-7 & 431,036 & 532,548 & +23.6\% \\
-8 & 535,356 & 649,377 & +21.3\% \\
-9 & 732,837 & 862,796 & +17.7\% \\
-10 (richest) & 1,813,019 & 1,943,776 & +7.2\% \\
+1 (poorest) & 157,222 & 237,807 & \textbf{+51.3\%} \\
+2 & 187,385 & 247,117 & \textbf{+31.9\%} \\
+3 & 230,425 & 293,611 & \textbf{+27.4\%} \\
+4 & 274,886 & 344,358 & +25.3\% \\
+5 & 315,314 & 401,367 & +27.3\% \\
+6 & 374,961 & 471,540 & +25.8\% \\
+7 & 446,590 & 571,221 & +27.9\% \\
+8 & 555,216 & 715,263 & +28.8\% \\
+9 & 768,212 & 1,006,468 & +31.0\% \\
+10 (richest) & 1,899,884 & 2,256,871 & +18.8\% \\
 \bottomrule
 \end{tabular}
-\caption{Average total per capita income by decile (CLP, 2024 prices)}
 \end{table}
 
-\textbf{Key finding}: Income growth was \textbf{strongly pro-poor}. The bottom deciles experienced gains of 26--28\%, while the top decile grew only 7.2\%. This represents a significant compression of the income distribution.
+\textbf{Key finding}: Income growth was \textbf{strongly pro-poor}. The bottom decile experienced gains of 51\%, driven largely by state transfers, while the top decile grew only 19\%. This represents a significant compression of the income distribution.
 
 \subsection{Autonomous Income Growth by Decile}
 
 \begin{table}[H]
 \centering
+\caption{Average autonomous per capita income by decile (CLP, 2024 prices)}
 \begin{tabular}{@{}crrr@{}}
 \toprule
 \textbf{Decile} & \textbf{2017 (adj.)} & \textbf{2024} & \textbf{Change} \\
 \midrule
-1 (poorest) & 97,896 & 122,384 & \textbf{+25.0\%} \\
-2 & 156,345 & 195,214 & \textbf{+24.9\%} \\
-3 & 197,737 & 248,600 & \textbf{+25.7\%} \\
-4 & 240,487 & 295,924 & +23.1\% \\
-5 & 285,076 & 348,054 & +22.1\% \\
-6 & 341,171 & 408,862 & +19.8\% \\
-7 & 415,935 & 492,178 & +18.3\% \\
-8 & 522,811 & 610,859 & +16.8\% \\
-9 & 722,737 & 833,368 & +15.3\% \\
-10 (richest) & 1,807,877 & 1,931,629 & +6.8\% \\
+1 (poorest) & 50,063 & 50,259 & \textbf{+0.4\%} \\
+2 & 113,552 & 131,421 & +15.7\% \\
+3 & 153,330 & 182,307 & +18.9\% \\
+4 & 193,783 & 234,684 & +21.1\% \\
+5 & 237,185 & 290,200 & +22.4\% \\
+6 & 289,602 & 360,751 & +24.6\% \\
+7 & 359,415 & 454,437 & +26.4\% \\
+8 & 461,249 & 590,804 & +28.1\% \\
+9 & 657,777 & 861,967 & +31.0\% \\
+10 (richest) & 1,713,050 & 2,037,644 & +18.9\% \\
 \bottomrule
 \end{tabular}
-\caption{Average autonomous per capita income by decile (CLP, 2024 prices)}
 \end{table}
 
-\textbf{Key finding}: Autonomous income (excluding state transfers) also showed pro-poor growth, though slightly less pronounced than total income. This indicates that market income improvements---wages, employment, contributory pensions---benefited lower deciles more than higher deciles.
+\textbf{Key finding}: Autonomous income growth was relatively flat at the bottom (decile 1 grew only 0.4\%) but stronger in the middle and upper-middle deciles. The combination of flat autonomous income growth at the bottom with strong total income growth (51\%) reveals the crucial role of state transfers in lifting the poorest households.
 
 \subsection{Transfer Contribution by Decile}
 
-The difference between total and autonomous income growth reveals the role of state transfers:
+The difference between total and autonomous income growth reveals the critical role of state transfers:
 
 \begin{table}[H]
 \centering
-\begin{tabular}{@{}ccc@{}}
+\caption{Comparison of total vs autonomous income growth (selected deciles)}
+\begin{tabular}{@{}cccc@{}}
 \toprule
-\textbf{Decile} & \textbf{Total Growth} & \textbf{Autonomous Growth} \\
+\textbf{Decile} & \textbf{Total Growth} & \textbf{Auton. Growth} & \textbf{Transfer Growth} \\
 \midrule
-1 & +26.4\% & +25.0\% \\
-2 & +28.1\% & +24.9\% \\
-3 & +27.8\% & +25.7\% \\
-10 & +7.2\% & +6.8\% \\
+1 & +51.3\% & +0.4\% & +75.0\% \\
+2 & +31.9\% & +15.7\% & +56.7\% \\
+3 & +27.4\% & +18.9\% & +44.4\% \\
+10 & +18.8\% & +18.9\% & +19.1\% \\
 \bottomrule
 \end{tabular}
-\caption{Comparison of total vs autonomous income growth (selected deciles)}
 \end{table}
 
-The small gap between total and autonomous growth (1--3 percentage points in lower deciles) suggests that while transfers contribute to poverty reduction, the bulk of income growth came from market sources.
+The large gap between total and autonomous growth in the bottom deciles reveals that state transfers are the primary driver of income growth for the poorest households. In decile 1, autonomous income barely grew (+0.4\%) while total income grew 51\%, with transfer income growing 75\%.
 
 % ============================================================
 \section{Income Distribution Analysis}
@@ -393,31 +397,31 @@ The small gap between total and autonomous growth (1--3 percentage points in low
 
 \subsection{Elderly-Only Households by Income Decile}
 
-Using total income decile boundaries, elderly-only households shifted toward higher deciles:
+Using autonomous income decile boundaries, elderly-only households show a striking divergence between total and autonomous income positions:
 
 \begin{table}[H]
 \centering
+\caption{Elderly-only household distribution by income decile}
 \begin{tabular}{@{}crrrr@{}}
 \toprule
 \textbf{Decile} & \textbf{Total 2017} & \textbf{Total 2024} & \textbf{Auton. 2017} & \textbf{Auton. 2024} \\
 \midrule
-1 (poorest) & 0.85\% & 0.22\% & 10.51\% & 13.86\% \\
-2 & 2.08\% & 1.73\% & 5.39\% & 11.66\% \\
-3 & 4.93\% & 2.53\% & 7.05\% & 9.41\% \\
+1 (poorest) & 0.28\% & 0.01\% & 18.23\% & 31.71\% \\
+2 & 0.22\% & 0.11\% & 8.05\% & 10.66\% \\
+3 & 1.05\% & 0.14\% & 9.48\% & 9.21\% \\
 \midrule
-\textbf{Bottom 3 total} & \textbf{7.86\%} & \textbf{4.48\%} & \textbf{22.95\%} & \textbf{34.93\%} \\
+\textbf{Bottom 3 total} & \textbf{1.55\%} & \textbf{0.26\%} & \textbf{35.76\%} & \textbf{51.58\%} \\
 \bottomrule
 \end{tabular}
-\caption{Elderly-only household distribution by income decile}
 \end{table}
 
 \textbf{Critical observation}:
 \begin{itemize}
     \item When measured by \textbf{total income}, elderly-only households moved UP the distribution (fewer in bottom deciles)
-    \item When measured by \textbf{autonomous income}, elderly-only households moved DOWN (more in bottom deciles)
+    \item When measured by \textbf{autonomous income}, elderly-only households moved DOWN---over half (51.6\%) are now in the bottom three deciles
 \end{itemize}
 
-This divergence reveals that state transfers are doing more work to elevate elderly households out of poverty. Without transfers, 34.9\% of elderly-only households would be in the bottom three deciles (up from 23\% in 2017). Transfers move most of them to middle and upper deciles.
+This divergence reveals the massive role of state transfers. Without transfers, the autonomous income position of elderly households \textbf{deteriorated significantly} between 2017 and 2024. Transfers completely compensate for this deterioration and more.
 
 % ============================================================
 \section{Labor Income and Education Premium}
@@ -429,6 +433,8 @@ This section analyzes hourly labor income for employed workers (dependent on emp
 
 \begin{table}[H]
 \centering
+\caption{Median hourly labor income by age cohort and education (CLP/hour, 2024 prices)}
+\label{tab:income_median}
 \small
 \begin{tabular}{@{}lrrrrrr@{}}
 \toprule
@@ -436,26 +442,24 @@ This section analyzes hourly labor income for employed workers (dependent on emp
 \cmidrule(lr){2-4} \cmidrule(lr){5-7}
 \textbf{Cohort} & Total & No Univ & Univ & Total & No Univ & Univ \\
 \midrule
-26-30 & 729 & 586 & 1,002 & 866 & 722 & 1,050 \\
-31-35 & 820 & 621 & 1,230 & 1,010 & 722 & 1,283 \\
-36-40 & 807 & 615 & 1,342 & 1,050 & 722 & 1,443 \\
-41-46 & 729 & 615 & 1,366 & 1,050 & 722 & 1,575 \\
-46-50 & 729 & 598 & 1,366 & 945 & 722 & 1,575 \\
-51-55 & 697 & 583 & 1,458 & 866 & 722 & 1,443 \\
-56-60 & 685 & 574 & 1,458 & 825 & 722 & 1,540 \\
-61-65 & 692 & 583 & 1,528 & 787 & 722 & 1,575 \\
+26-30 & 3,156 & 2,536 & 4,339 & 3,750 & 3,125 & 4,545 \\
+31-35 & 3,550 & 2,689 & 5,325 & 4,375 & 3,125 & 5,556 \\
+36-40 & 3,495 & 2,662 & 5,809 & 4,545 & 3,125 & 6,250 \\
+41-46 & 3,156 & 2,662 & 5,917 & 4,545 & 3,125 & 6,818 \\
+46-50 & 3,156 & 2,589 & 5,917 & 4,091 & 3,125 & 6,818 \\
+51-55 & 3,018 & 2,524 & 6,311 & 3,750 & 3,125 & 6,250 \\
+56-60 & 2,966 & 2,485 & 6,311 & 3,571 & 3,125 & 6,667 \\
+61-65 & 2,998 & 2,524 & 6,616 & 3,409 & 3,125 & 6,818 \\
 \midrule
-\textbf{Average} & 736 & 597 & 1,344 & 925 & 722 & 1,436 \\
+\textbf{Average} & 3,187 & 2,584 & 5,818 & 4,004 & 3,125 & 6,215 \\
 \bottomrule
 \end{tabular}
-\caption{Median hourly labor income by age cohort and education (CLP/hour, 2024 prices)}
-\label{tab:income_median}
 \end{table}
 
 \textbf{Key observations}:
 \begin{itemize}
-    \item Median hourly income for workers \textbf{without university education} increased from 597 to 722 CLP/hour (+21\%)
-    \item Median hourly income for workers \textbf{with university education} increased from 1,344 to 1,436 CLP/hour (+7\%)
+    \item Median hourly income for workers \textbf{without university education} increased from 2,584 to 3,125 CLP/hour (+21\%)
+    \item Median hourly income for workers \textbf{with university education} increased from 5,818 to 6,215 CLP/hour (+7\%)
     \item Non-university workers saw larger proportional gains, narrowing the education gap
 \end{itemize}
 
@@ -465,29 +469,29 @@ The education premium measures how much more university-educated workers earn co
 
 \begin{table}[H]
 \centering
+\caption{University education premium on median hourly income}
+\label{tab:premium_median}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
 \textbf{Cohort} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
 \midrule
-26-30 & 71.0\% & 45.4\% & --25.6 pp \\
-31-35 & 98.1\% & 77.7\% & --20.4 pp \\
-36-40 & 118.2\% & 99.9\% & --18.3 pp \\
-41-46 & 122.1\% & 118.1\% & --4.0 pp \\
-46-50 & 128.4\% & 118.1\% & --10.3 pp \\
-51-55 & 150.1\% & 99.9\% & --50.2 pp \\
+26-30 & 71.1\% & 45.4\% & --25.7 pp \\
+31-35 & 98.0\% & 77.8\% & --20.2 pp \\
+36-40 & 118.2\% & 100.0\% & --18.2 pp \\
+41-46 & 122.3\% & 118.2\% & --4.1 pp \\
+46-50 & 128.5\% & 118.2\% & --10.3 pp \\
+51-55 & 150.0\% & 100.0\% & --50.0 pp \\
 56-60 & 154.0\% & 113.3\% & --40.7 pp \\
-61-65 & 162.1\% & 118.1\% & --44.0 pp \\
+61-65 & 162.1\% & 118.2\% & --43.9 pp \\
 \midrule
-\textbf{Average} & 125.5\% & 98.8\% & \textbf{--26.7 pp} \\
+\textbf{Average} & 125.5\% & 98.9\% & \textbf{--26.6 pp} \\
 \bottomrule
 \end{tabular}
-\caption{University education premium on median hourly income}
-\label{tab:premium_median}
 \end{table}
 
-\textbf{Striking finding}: The university education premium \textbf{declined substantially} across all age cohorts. On average, the median premium fell from 125.5\% to 98.8\% (a drop of 26.7 percentage points). This means:
+\textbf{Striking finding}: The university education premium \textbf{declined substantially} across all age cohorts. On average, the median premium fell from 125.5\% to 98.9\% (a drop of 26.6 percentage points). This means:
 \begin{itemize}
-    \item In 2017, university graduates earned 2.25$\times$ the hourly wage of non-graduates
+    \item In 2017, university graduates earned 2.26$\times$ the hourly wage of non-graduates
     \item In 2024, university graduates earn 1.99$\times$ the hourly wage of non-graduates
 \end{itemize}
 
@@ -527,19 +531,36 @@ The following figures show how the education premium changed across different po
 
 \begin{table}[H]
 \centering
-\begin{tabular}{@{}lrrr@{}}
+\caption{Hourly income and education premium by percentile (CLP/hour, 2024 prices)}
+\label{tab:premium_summary}
+\small
+\begin{tabular}{@{}lrrrrrrrr@{}}
 \toprule
-\textbf{Percentile} & \textbf{Premium 2017} & \textbf{Premium 2024} & \textbf{Change} \\
+& \multicolumn{3}{c}{\textbf{2017 (adj.)}} & \multicolumn{3}{c}{\textbf{2024}} & \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+\textbf{Percentile} & No Univ & Univ & Premium & No Univ & Univ & Premium & \textbf{Change} \\
 \midrule
-P25 & 61.7\% & 40.8\% & --20.9 pp \\
-Median & 125.5\% & 98.8\% & --26.7 pp \\
-P75 & 179.6\% & 155.4\% & --24.2 pp \\
-P90 & 226.4\% & 211.8\% & --14.6 pp \\
+P25 & 2,130 & 3,445 & 61.7\% & 2,784 & 3,921 & 40.8\% & --20.9 pp \\
+Median & 2,584 & 5,818 & 125.2\% & 3,125 & 6,215 & 98.9\% & --26.3 pp \\
+P75 & 3,577 & 10,009 & 179.8\% & 4,028 & 10,306 & 155.9\% & --23.9 pp \\
+P90 & 5,219 & 17,054 & 226.8\% & 5,461 & 17,096 & 213.1\% & --13.7 pp \\
 \bottomrule
 \end{tabular}
-\caption{Average education premium by percentile (all cohorts)}
-\label{tab:premium_summary}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{income_by_education_2017.png}
+\caption{Hourly labor income by education level (2017, inflation-adjusted)}
+\label{fig:income_by_education_2017}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{income_by_education_2024.png}
+\caption{Hourly labor income by education level (2024)}
+\label{fig:income_by_education_2024}
+\end{figure}
 
 The education premium declined at all points of the distribution, with the largest decreases at the median and P75. This suggests:
 \begin{itemize}
@@ -554,27 +575,27 @@ The education premium declined at all points of the distribution, with the large
 
 \subsection{Chile's Transfer System for the Elderly is Highly Effective}
 
-State transfers eliminate \textbf{98.7\%} of autonomous poverty among elderly-only households, bringing total income poverty down to just 0.12\%. This is a remarkably successful targeted policy.
+State transfers eliminate \textbf{99.7\%} of autonomous poverty among elderly-only households, bringing total income poverty down to just 0.12\%. This is a remarkably successful targeted policy.
 
-\subsection{Overall Poverty Reduction Driven by Market Income Improvements}
+\subsection{Transfers are Central to Poverty Reduction}
 
-The parallel decrease in both total and autonomous poverty (--5.2 pp each) indicates that economic growth, employment, and market wages improved substantially between 2017 and 2024.
+State transfers eliminate approximately 15 percentage points of poverty---bringing the poverty rate from 25\% (autonomous) to 4.6\% (total income). Transfer efficiency improved from 60.8\% to 76.2\% of autonomous poverty eliminated.
 
-\subsection{Transfer Efficiency Nearly Doubled}
+\subsection{Autonomous Poverty Among Elderly Increased, But Transfers Compensate}
 
-Even though the absolute poverty reduction from transfers remained constant ($\sim$3.8 pp), transfers now eliminate a much larger share of autonomous poverty (45\% vs 28\%), as the base of autonomous poor decreased.
+Autonomous poverty among elderly-only households \textbf{increased} from 31.7\% to 41.7\%. However, the transfer system completely compensates, reducing total income poverty to near zero. Over half of elderly-only households would be in the bottom three income deciles without transfers.
 
 \subsection{Regional Convergence}
 
 Historically poor regions (La Araucanía, Ñuble, Los Lagos) showed the largest poverty reductions, suggesting some regional convergence in living standards.
 
-\subsection{Growing Dependence of Elderly on Transfers}
+\subsection{Pro-Poor Income Growth, Especially Through Transfers}
 
-Without transfers, more elderly households would fall into poverty in 2024 than in 2017 (as measured by autonomous income distribution). The transfer system is compensating for what would otherwise be a deteriorating position of elderly households in the income distribution.
+The bottom decile saw 51\% growth in total income, but only 0.4\% in autonomous income. This reveals that state transfers---not market income improvements---drove income growth for the poorest households.
 
 \subsection{Declining Returns to University Education}
 
-The university wage premium fell from 125\% to 99\% at the median, driven by faster wage growth for non-university workers (+21\%) compared to university graduates (+7\%). This compression of the education premium occurred across all age cohorts and at all points of the wage distribution, suggesting structural changes in the labor market that favor less-educated workers.
+The university wage premium fell from 126\% to 99\% at the median, driven by faster wage growth for non-university workers (+21\%) compared to university graduates (+7\%). This compression of the education premium occurred across all age cohorts and at all points of the wage distribution.
 
 % ============================================================
 \section{Data Sources and Files}
@@ -595,7 +616,9 @@ The university wage premium fell from 125\% to 99\% at the median, driven by fas
 \begin{enumerate}
     \item All poverty rates are weighted using survey expansion factors (\texttt{expr})
     \item Poverty lines are based on World Bank's \$8.3 PPP per day (moderate poverty)
-    \item Consistent methodology across both years: \texttt{ytotcorh/numper} for total income, \texttt{(ytotcorh-ysubh)/numper} for autonomous income
+    \item Consistent methodology across both years: \texttt{ytotcorh/numper} for total income, \texttt{yautcorh/numper} for autonomous income
+    \item Autonomous income (\texttt{yautcorh}) includes only labor income, self-employment, and contributory pensions---excludes all state transfers
+    \item Income deciles are defined based on autonomous income distribution
     \item Regional analysis covers all 16 Chilean regions
     \item Comunal analysis limited to Región Metropolitana
 \end{enumerate}
@@ -605,7 +628,8 @@ The university wage premium fell from 125\% to 99\% at the median, driven by fas
 \begin{center}
 \rule{0.5\textwidth}{0.4pt}\\[0.5cm]
 \textit{Report generated: January 2026}\\
-\textit{Data: CASEN 2017 and CASEN 2024, Ministerio de Desarrollo Social y Familia, Chile}
+\textit{Data: CASEN 2017 and CASEN 2024, Ministerio de Desarrollo Social y Familia, Chile}\\[0.3cm]
+Code and data: \href{https://github.com/ceggersp/AnalisisCASEN}{github.com/ceggersp/AnalisisCASEN}
 \end{center}
 
 \end{document}
