@@ -1,0 +1,24 @@
+# Data files (too large for git)
+raw_data/*.dta
+harmonized_data/*.dta
+harmonized_data/*.rds
+
+# Output files (regenerable)
+output/*.xlsx
+output/*.csv
+
+# R temporary files
+.Rhistory
+.RData
+.Rproj.user/
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# OS files
+.DS_Store
+Thumbs.db

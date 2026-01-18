@@ -1,0 +1,390 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{palatino} % cool font 
+\usepackage{mathpazo} % fancy font for math
+
+% Page geometry
+\geometry{margin=2.5cm}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    urlcolor=blue!60!black,
+    citecolor=blue!60!black
+}
+
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{CASEN 2017-2024 Comparison}
+\lhead{State Transfers and Poverty in Chile}
+\rfoot{Page \thepage}
+
+% Title formatting
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+
+% Custom column type for tables
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+
+    {\Huge\bfseries State Transfers and Poverty in Chile}\\[0.5cm]
+    {\LARGE A Comparison of CASEN 2017 and 2024}\\[2cm]
+
+    \vfill
+
+    {\large Data Source: CASEN Survey}\\[0.3cm]
+    {\large Ministerio de Desarrollo Social y Familia, Chile}\\[1cm]
+
+    {\large January 2026}
+
+    \vfill
+\end{titlepage}
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+% ============================================================
+\section{Executive Summary}
+% ============================================================
+
+This report analyzes changes in poverty rates and the effectiveness of state transfers in Chile between 2017 and 2024, using data from the CASEN (Caracterización Socioeconómica Nacional) surveys. The analysis uses a consistent methodology across both years, measuring poverty against the World Bank's 8.3 PPP per day standard (adjusted for inflation).
+
+\textbf{Key Finding}: Total income poverty fell dramatically from \textbf{9.8\% (2017) to 4.6\% (2024)}, while the efficiency of state transfers in reducing poverty nearly doubled, increasing from 27.8\% to 45.4\% of autonomous poverty eliminated.
+
+% ============================================================
+\section{Methodology}
+% ============================================================
+
+\subsection{Income Definitions}
+
+\begin{itemize}
+    \item \textbf{Total income}: \texttt{ytotcorh / numper} (corrected household income per capita, including all sources)
+    \item \textbf{Autonomous income}: \texttt{(ytotcorh - ysubh) / numper} (excluding state transfers)
+    \item \textbf{State transfers (ysubh)}: Non-contributory pensions + subsidies
+    \item \textbf{Contributory pensions (AFP)}: Remain in autonomous income (self-financed)
+\end{itemize}
+
+\subsection{Poverty Lines}
+
+\begin{itemize}
+    \item \textbf{2017}: \$107,347 per capita per month (2017 prices)
+    \item \textbf{2024}: \$152,160 per capita per month (2024 prices)
+\end{itemize}
+
+Both poverty lines are equivalent to the World Bank's \$8.3 PPP per day standard, adjusted for Chilean prices in each year.
+
+\subsection{Household Categories}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Category} & \textbf{Definition} \\
+\midrule
+No65 & Households with NO members aged 65+ \\
+AtLeast1\_65 & Households with at least one member aged 65+ \\
+Only65 & Households where ALL members are aged 65+ \\
+WorkAge & Households with only members aged 24--64 \\
+\bottomrule
+\end{tabular}
+\caption{Household age composition categories}
+\end{table}
+
+% ============================================================
+\section{Main Findings}
+% ============================================================
+
+\subsection{Dramatic Reduction in Poverty (2017--2024)}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Metric} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
+\midrule
+Total income poverty & 9.80\% & 4.59\% & \textbf{--5.21 pp} \\
+Autonomous income poverty & 13.57\% & 8.41\% & \textbf{--5.16 pp} \\
+Transfer impact & 3.77 pp & 3.82 pp & +0.05 pp \\
+\bottomrule
+\end{tabular}
+\caption{National poverty rates comparison}
+\end{table}
+
+Both total and autonomous poverty decreased by similar magnitudes ($\sim$5 pp), suggesting that poverty reduction was driven primarily by improvements in market income (wages, self-employment, contributory pensions) rather than expansion of state transfers.
+
+\subsection{State Transfer Efficiency Doubled}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Metric} & \textbf{2017} & \textbf{2024} \\
+\midrule
+Transfer impact (pp) & 3.77 & 3.82 \\
+\% of autonomous poverty eliminated & \textbf{27.8\%} & \textbf{45.4\%} \\
+\bottomrule
+\end{tabular}
+\caption{Transfer efficiency comparison}
+\end{table}
+
+Although the absolute transfer impact remained nearly constant (3.77 pp vs 3.82 pp), efficiency increased dramatically because autonomous poverty fell. State transfers now eliminate \textbf{45.4\%} of pre-transfer poverty, compared to only 27.8\% in 2017.
+
+\subsection{Near-Elimination of Poverty Among the Elderly}
+
+The most striking finding concerns \textbf{elderly-only households} (Only65):
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Metric} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
+\midrule
+Total income poverty & 0.85\% & \textbf{0.12\%} & --0.73 pp \\
+Autonomous income poverty & 10.45\% & 9.34\% & --1.11 pp \\
+Transfer impact & 9.60 pp & 9.22 pp & --0.38 pp \\
+\textbf{Transfer efficiency} & 91.9\% & \textbf{98.7\%} & +6.8 pp \\
+\bottomrule
+\end{tabular}
+\caption{Elderly-only households poverty indicators}
+\end{table}
+
+\textbf{Interpretation}:
+\begin{itemize}
+    \item Without state transfers, $\sim$9--10\% of elderly-only households would be poor (similar in both years)
+    \item State transfers now eliminate \textbf{98.7\%} of autonomous poverty among elderly-only households
+    \item Total income poverty among elderly-only households has been virtually eliminated (0.12\%)
+    \item This represents one of the most effective targeted transfer programs in Latin America
+\end{itemize}
+
+\subsection{Poverty Reduction Across All Household Types}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Household Type} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
+\midrule
+No elderly (No65) & 11.49\% & 5.71\% & --5.78 pp \\
+At least 1 elderly & 5.66\% & 1.73\% & --3.93 pp \\
+Elderly-only & 0.85\% & 0.12\% & --0.73 pp \\
+Working-age only & 2.78\% & 1.59\% & --1.19 pp \\
+\bottomrule
+\end{tabular}
+\caption{Total income poverty by household type}
+\end{table}
+
+All household types experienced poverty reduction, with households without elderly members showing the largest absolute decrease (--5.78 pp).
+
+\subsection{Transfer Efficiency by Household Type}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Household Type} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
+\midrule
+Overall & 27.8\% & 45.4\% & +17.6 pp \\
+No elderly & 17.6\% & 26.0\% & +8.4 pp \\
+At least 1 elderly & 55.3\% & 82.9\% & +27.6 pp \\
+\textbf{Elderly-only} & 91.9\% & \textbf{98.7\%} & +6.8 pp \\
+Working-age only & 28.5\% & 31.5\% & +3.0 pp \\
+\bottomrule
+\end{tabular}
+\caption{Transfer efficiency (\% of autonomous poverty eliminated) by household type}
+\end{table}
+
+\textbf{Key insight}: Households with elderly members benefit most from state transfers. For households with at least one elderly member, transfers now eliminate 82.9\% of autonomous poverty, up from 55.3\% in 2017.
+
+% ============================================================
+\section{Regional Analysis}
+% ============================================================
+
+\subsection{Regions with Largest Poverty Reduction}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Region} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
+\midrule
+La Araucanía & 19.08\% & 9.30\% & \textbf{--9.78 pp} \\
+Los Lagos & 12.58\% & 3.60\% & \textbf{--8.98 pp} \\
+Ñuble & 15.84\% & 7.10\% & \textbf{--8.74 pp} \\
+Coquimbo & 14.89\% & 6.47\% & --8.42 pp \\
+Biobío & 13.31\% & 4.99\% & --8.32 pp \\
+\bottomrule
+\end{tabular}
+\caption{Regions with largest poverty reduction}
+\end{table}
+
+Historically poor regions in southern Chile (La Araucanía, Los Lagos) and central-south Chile (Ñuble, Maule) showed the largest improvements.
+
+\subsection{Only Region with Poverty Increase}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Region} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
+\midrule
+Magallanes & 2.25\% & 2.43\% & +0.18 pp \\
+\bottomrule
+\end{tabular}
+\caption{Region with poverty increase}
+\end{table}
+
+Magallanes was the only region where poverty increased slightly, though it remains among the lowest poverty regions.
+
+\subsection{Regions with Largest Increase in Transfer Effectiveness}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Region} & \textbf{Impact 2017} & \textbf{Impact 2024} & \textbf{Change} \\
+\midrule
+Atacama & 1.81 pp & 3.09 pp & +1.28 pp \\
+Biobío & 5.03 pp & 5.66 pp & +0.63 pp \\
+Valparaíso & 3.57 pp & 3.95 pp & +0.38 pp \\
+\bottomrule
+\end{tabular}
+\caption{Regions with largest increase in transfer effectiveness}
+\end{table}
+
+% ============================================================
+\section{Demographic Shifts}
+% ============================================================
+
+\subsection{Household Composition Changes (2017--2024)}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Category} & \textbf{2017} & \textbf{2024} & \textbf{Change} \\
+\midrule
+No elderly & 71.09\% & 71.84\% & +0.75 pp \\
+At least 1 elderly & 28.91\% & 28.16\% & --0.75 pp \\
+Elderly-only & 5.59\% & 5.77\% & +0.18 pp \\
+\textbf{Working-age only} & 13.64\% & \textbf{17.92\%} & \textbf{+4.28 pp} \\
+\bottomrule
+\end{tabular}
+\caption{Population share by household composition}
+\end{table}
+
+The share of working-age only households (24--64, no children or elderly) increased by 4.28 percentage points, reflecting demographic changes and possibly delayed childbearing.
+
+% ============================================================
+\section{Income Distribution Analysis}
+% ============================================================
+
+\subsection{Elderly-Only Households by Income Decile}
+
+Using total income decile boundaries, elderly-only households shifted toward higher deciles:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}crrrr@{}}
+\toprule
+\textbf{Decile} & \textbf{Total 2017} & \textbf{Total 2024} & \textbf{Auton. 2017} & \textbf{Auton. 2024} \\
+\midrule
+1 (poorest) & 0.85\% & 0.22\% & 10.51\% & 13.86\% \\
+2 & 2.08\% & 1.73\% & 5.39\% & 11.66\% \\
+3 & 4.93\% & 2.53\% & 7.05\% & 9.41\% \\
+\midrule
+\textbf{Bottom 3 total} & \textbf{7.86\%} & \textbf{4.48\%} & \textbf{22.95\%} & \textbf{34.93\%} \\
+\bottomrule
+\end{tabular}
+\caption{Elderly-only household distribution by income decile}
+\end{table}
+
+\textbf{Critical observation}:
+\begin{itemize}
+    \item When measured by \textbf{total income}, elderly-only households moved UP the distribution (fewer in bottom deciles)
+    \item When measured by \textbf{autonomous income}, elderly-only households moved DOWN (more in bottom deciles)
+\end{itemize}
+
+This divergence reveals that state transfers are doing more work to elevate elderly households out of poverty. Without transfers, 34.9\% of elderly-only households would be in the bottom three deciles (up from 23\% in 2017). Transfers move most of them to middle and upper deciles.
+
+% ============================================================
+\section{Key Takeaways}
+% ============================================================
+
+\subsection{Chile's Transfer System for the Elderly is Highly Effective}
+
+State transfers eliminate \textbf{98.7\%} of autonomous poverty among elderly-only households, bringing total income poverty down to just 0.12\%. This is a remarkably successful targeted policy.
+
+\subsection{Overall Poverty Reduction Driven by Market Income Improvements}
+
+The parallel decrease in both total and autonomous poverty (--5.2 pp each) indicates that economic growth, employment, and market wages improved substantially between 2017 and 2024.
+
+\subsection{Transfer Efficiency Nearly Doubled}
+
+Even though the absolute poverty reduction from transfers remained constant ($\sim$3.8 pp), transfers now eliminate a much larger share of autonomous poverty (45\% vs 28\%), as the base of autonomous poor decreased.
+
+\subsection{Regional Convergence}
+
+Historically poor regions (La Araucanía, Ñuble, Los Lagos) showed the largest poverty reductions, suggesting some regional convergence in living standards.
+
+\subsection{Growing Dependence of Elderly on Transfers}
+
+Without transfers, more elderly households would fall into poverty in 2024 than in 2017 (as measured by autonomous income distribution). The transfer system is compensating for what would otherwise be a deteriorating position of elderly households in the income distribution.
+
+% ============================================================
+\section{Data Sources and Files}
+% ============================================================
+
+\begin{itemize}
+    \item \textbf{CASEN 2017}: \texttt{CASEN\_2017/Tables/poverty\_comparison\_extended.xlsx}
+    \item \textbf{CASEN 2024}: \texttt{CASEN\_2024/Tables/poverty\_comparison\_extended.xlsx}
+    \item \textbf{Comparison Tables}: \texttt{comparison\_2017\_2024.xlsx}
+    \item \textbf{Analysis Code}: \texttt{compare\_2017\_2024.R}
+\end{itemize}
+
+% ============================================================
+\section{Technical Notes}
+% ============================================================
+
+\begin{enumerate}
+    \item All poverty rates are weighted using survey expansion factors (\texttt{expr})
+    \item Poverty lines are based on World Bank's \$8.3 PPP per day (moderate poverty)
+    \item Consistent methodology across both years: \texttt{ytotcorh/numper} for total income, \texttt{(ytotcorh-ysubh)/numper} for autonomous income
+    \item Regional analysis covers all 16 Chilean regions
+    \item Comunal analysis limited to Región Metropolitana
+\end{enumerate}
+
+\vfill
+
+\begin{center}
+\rule{0.5\textwidth}{0.4pt}\\[0.5cm]
+\textit{Report generated: January 2026}\\
+\textit{Data: CASEN 2017 and CASEN 2024, Ministerio de Desarrollo Social y Familia, Chile}
+\end{center}
+
+\end{document}

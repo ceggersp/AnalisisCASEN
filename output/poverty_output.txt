@@ -1,0 +1,172 @@
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Loading CASEN 2024 data...
+Loading provincia/comuna data...
+
+Poverty line: $ 236,705  per capita
+
+Calculating national poverty rates...
+Calculating regional poverty rates...
+Calculating poverty rates for comunas in Región Metropolitana...
+
+=================================================================
+POVERTY RATES COMPARISON: TOTAL INCOME VS AUTONOMOUS INCOME ONLY
+=================================================================
+
+                                         Geography  Code Poverty_Total_Income
+                                  Chile (National)  <NA>                15.97
+                                Región de Tarapacá     1                21.00
+                             Región de Antofagasta     2                15.30
+                                 Región de Atacama     3                17.76
+                                Región de Coquimbo     4                20.11
+                              Región de Valparaíso     5                16.27
+    Región del Libertador Gral. Bernardo O'Higgins     6                16.06
+                                  Región del Maule     7                22.82
+                                 Región del Biobío     8                18.26
+                            Región de La Araucanía     9                26.00
+                               Región de Los Lagos    10                14.85
+ Región de Aysén del Gral. Carlos Ibáñez del Campo    11                10.27
+    Región de Magallanes y de la Antártica Chilena    12                 6.59
+                  Región Metropolitana de Santiago    13                12.18
+                                Región de Los Ríos    14                19.78
+                      Región de Arica y Parinacota    15                21.25
+                                   Región de Ñuble    16                22.73
+                                          Santiago 13101                10.58
+                                         Cerrillos 13102                16.55
+                                       Cerro Navia 13103                24.51
+                                          Conchalí 13104                11.24
+                                         El Bosque 13105                22.35
+                                  Estación Central 13106                22.46
+                                        Huechuraba 13107                 8.04
+                                     Independencia 13108                16.21
+                                       La Cisterna 13109                 4.60
+                                        La Florida 13110                 7.26
+                                         La Granja 13111                21.20
+                                        La Pintana 13112                23.56
+                                          La Reina 13113                 0.75
+                                        Las Condes 13114                 0.91
+                                      Lo Barnechea 13115                 4.56
+                                         Lo Espejo 13116                16.73
+                                          Lo Prado 13117                12.12
+                                             Macul 13118                14.60
+                                             Maipú 13119                 8.29
+                                             Ñuñoa 13120                 1.50
+                               Pedro Aguirre Cerda 13121                17.58
+                                         Peñalolén 13122                10.81
+                                       Providencia 13123                 1.02
+                                          Pudahuel 13124                 9.37
+                                         Quilicura 13125                14.23
+                                     Quinta Normal 13126                11.58
+                                          Recoleta 13127                17.35
+                                             Renca 13128                23.08
+                                       San Joaquín 13129                10.14
+                                        San Miguel 13130                 5.17
+                                         San Ramón 13131                20.65
+                                          Vitacura 13132                 0.27
+                                       Puente Alto 13201                13.74
+                                            Pirque 13202                15.18
+                                 San José de Maipo 13203                18.89
+                                            Colina 13301                15.51
+                                             Lampa 13302                17.86
+                                            Tiltil 13303                18.60
+                                      San Bernardo 13401                16.93
+                                              Buin 13402                16.11
+                                   Calera de Tango 13403                 9.39
+                                             Paine 13404                16.17
+                                         Melipilla 13501                17.39
+                                             Alhué 13502                16.82
+                                          Curacaví 13503                22.34
+                                       María Pinto 13504                10.24
+                                         San Pedro 13505                 9.21
+                                         Talagante 13601                20.57
+                                          El Monte 13602                20.70
+                                     Isla de Maipo 13603                12.14
+                                     Padre Hurtado 13604                13.56
+                                          Peñaflor 13605                12.59
+ Poverty_Autonomous_Income Difference
+                     35.23      19.27
+                     34.99      13.99
+                     28.85      13.55
+                     35.00      17.24
+                     42.35      22.24
+                     36.72      20.45
+                     39.53      23.48
+                     47.33      24.51
+                     41.69      23.44
+                     53.18      27.18
+                     37.80      22.95
+                     27.73      17.45
+                     20.51      13.92
+                     27.76      15.58
+                     44.13      24.35
+                     39.41      18.16
+                     48.34      25.61
+                     15.34       4.76
+                     31.82      15.27
+                     50.44      25.94
+                     30.48      19.24
+                     51.68      29.33
+                     33.16      10.70
+                     20.97      12.93
+                     24.00       7.79
+                     12.75       8.15
+                     21.43      14.17
+                     44.98      23.78
+                     49.44      25.88
+                      7.28       6.53
+                      3.78       2.87
+                     12.27       7.72
+                     50.69      33.96
+                     32.59      20.47
+                     36.45      21.85
+                     24.75      16.46
+                      4.92       3.43
+                     39.32      21.75
+                     27.69      16.88
+                      4.08       3.06
+                     29.31      19.94
+                     28.43      14.21
+                     26.01      14.43
+                     40.79      23.45
+                     41.27      18.19
+                     30.58      20.44
+                     12.29       7.11
+                     45.02      24.37
+                      1.28       1.00
+                     34.11      20.38
+                     45.00      29.82
+                     40.52      21.63
+                     31.35      15.84
+                     31.91      14.05
+                     40.31      21.71
+                     36.46      19.53
+                     31.41      15.31
+                     26.75      17.36
+                     37.03      20.86
+                     45.47      28.08
+                     44.07      27.25
+                     43.63      21.30
+                     36.43      26.19
+                     26.17      16.97
+                     39.90      19.33
+                     51.37      30.67
+                     38.91      26.77
+                     36.56      23.00
+                     33.11      20.52
+
+
+Table saved to: poverty_comparison_table.csv 
+
+=== SUMMARY ===
+National poverty rate (total income): 15.97 %
+National poverty rate (autonomous income only): 35.23 %
+Difference: 19.27 percentage points
