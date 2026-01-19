@@ -22,7 +22,7 @@ AGE_BREAKS <- c(26, 31, 36, 41, 46, 51, 56, 61, 66)
 AGE_LABELS <- c("26-30", "31-35", "36-40", "41-46", "46-50", "51-55", "56-60", "61-65")
 
 # Output file
-OUTPUT_FILE <- "output/labor_income_by_cohort.xlsx"
+OUTPUT_FILE <- "output/tables/labor_income_by_cohort.xlsx"
 
 # ===========================================================================
 # FUNCTIONS

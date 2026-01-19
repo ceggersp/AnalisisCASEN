@@ -17,11 +17,11 @@ setwd("C:/Users/CARLOSEG/Documents/CASEN")
 cat("Loading labor income data...\n")
 
 # Read all sheets
-mean_data <- read_excel("output/labor_income_by_cohort.xlsx", sheet = "Mean")
-median_data <- read_excel("output/labor_income_by_cohort.xlsx", sheet = "Median")
-p25_data <- read_excel("output/labor_income_by_cohort.xlsx", sheet = "P25")
-p75_data <- read_excel("output/labor_income_by_cohort.xlsx", sheet = "P75")
-p90_data <- read_excel("output/labor_income_by_cohort.xlsx", sheet = "P90")
+mean_data <- read_excel("output/tables/labor_income_by_cohort.xlsx", sheet = "Mean")
+median_data <- read_excel("output/tables/labor_income_by_cohort.xlsx", sheet = "Median")
+p25_data <- read_excel("output/tables/labor_income_by_cohort.xlsx", sheet = "P25")
+p75_data <- read_excel("output/tables/labor_income_by_cohort.xlsx", sheet = "P75")
+p90_data <- read_excel("output/tables/labor_income_by_cohort.xlsx", sheet = "P90")
 
 # ===========================================================================
 # TABLE 1: HOURLY INCOME BY COHORT AND EDUCATION
@@ -182,19 +182,19 @@ cat("\nGenerating English plots...\n")
 p1_en <- create_premium_plot(plot_p25, "University Education Premium (P25)",
                               "University vs No University hourly income",
                               "Age Cohort", "Education Premium (%)", "Year",
-                              "reports/education_premium_p25.png")
+                              "output/figures/education_premium_p25.png")
 p2_en <- create_premium_plot(plot_median, "University Education Premium (Median)",
                               "University vs No University hourly income",
                               "Age Cohort", "Education Premium (%)", "Year",
-                              "reports/education_premium_median.png")
+                              "output/figures/education_premium_median.png")
 p3_en <- create_premium_plot(plot_p75, "University Education Premium (P75)",
                               "University vs No University hourly income",
                               "Age Cohort", "Education Premium (%)", "Year",
-                              "reports/education_premium_p75.png")
+                              "output/figures/education_premium_p75.png")
 p4_en <- create_premium_plot(plot_p90, "University Education Premium (P90)",
                               "University vs No University hourly income",
                               "Age Cohort", "Education Premium (%)", "Year",
-                              "reports/education_premium_p90.png")
+                              "output/figures/education_premium_p90.png")
 
 # ===========================================================================
 # SPANISH PLOTS
@@ -254,19 +254,19 @@ create_premium_plot_es <- function(data, title, subtitle, x_label, y_label, lege
 p1_es <- create_premium_plot_es(plot_p25_es, "Prima Educacional Universitaria (P25)",
                                  "Ingreso por hora: Universitarios vs No Universitarios",
                                  "Cohorte de Edad", "Prima Educacional (%)", "Año",
-                                 "reports/education_premium_p25_es.png")
+                                 "output/figures/education_premium_p25_es.png")
 p2_es <- create_premium_plot_es(plot_median_es, "Prima Educacional Universitaria (Mediana)",
                                  "Ingreso por hora: Universitarios vs No Universitarios",
                                  "Cohorte de Edad", "Prima Educacional (%)", "Año",
-                                 "reports/education_premium_median_es.png")
+                                 "output/figures/education_premium_median_es.png")
 p3_es <- create_premium_plot_es(plot_p75_es, "Prima Educacional Universitaria (P75)",
                                  "Ingreso por hora: Universitarios vs No Universitarios",
                                  "Cohorte de Edad", "Prima Educacional (%)", "Año",
-                                 "reports/education_premium_p75_es.png")
+                                 "output/figures/education_premium_p75_es.png")
 p4_es <- create_premium_plot_es(plot_p90_es, "Prima Educacional Universitaria (P90)",
                                  "Ingreso por hora: Universitarios vs No Universitarios",
                                  "Cohorte de Edad", "Prima Educacional (%)", "Año",
-                                 "reports/education_premium_p90_es.png")
+                                 "output/figures/education_premium_p90_es.png")
 
 # ===========================================================================
 # SAVE TABLES TO EXCEL
@@ -300,8 +300,8 @@ writeData(wb, "Premium_P75", premium_p75)
 addWorksheet(wb, "Premium_P90")
 writeData(wb, "Premium_P90", premium_p90)
 
-saveWorkbook(wb, "output/labor_income_tables.xlsx", overwrite = TRUE)
-cat("Saved: output/labor_income_tables.xlsx\n")
+saveWorkbook(wb, "output/tables/labor_income_tables.xlsx", overwrite = TRUE)
+cat("Saved: output/tables/labor_income_tables.xlsx\n")
 
 # ===========================================================================
 # PRINT LATEX TABLES
@@ -549,14 +549,14 @@ p_income_2017_en <- create_income_comparison_plot(
   income_2017, 2017,
   "Hourly Labor Income by Education (2017)",
   "Average across age cohorts, inflation-adjusted to 2024 CLP",
-  "reports/income_by_education_2017.png"
+  "output/figures/income_by_education_2017.png"
 )
 
 p_income_2024_en <- create_income_comparison_plot(
   income_2024, 2024,
   "Hourly Labor Income by Education (2024)",
   "Average across age cohorts",
-  "reports/income_by_education_2024.png"
+  "output/figures/income_by_education_2024.png"
 )
 
 # Generate Spanish plots
@@ -564,20 +564,20 @@ p_income_2017_es <- create_income_comparison_plot_es(
   income_2017, 2017,
   "Ingreso Laboral por Hora según Educación (2017)",
   "Promedio entre cohortes de edad, ajustado por inflación a CLP 2024",
-  "reports/income_by_education_2017_es.png"
+  "output/figures/income_by_education_2017_es.png"
 )
 
 p_income_2024_es <- create_income_comparison_plot_es(
   income_2024, 2024,
   "Ingreso Laboral por Hora según Educación (2024)",
   "Promedio entre cohortes de edad",
-  "reports/income_by_education_2024_es.png"
+  "output/figures/income_by_education_2024_es.png"
 )
 
 # Save updated table to Excel
 addWorksheet(wb, "Premium_Summary")
 writeData(wb, "Premium_Summary", table17)
-saveWorkbook(wb, "output/labor_income_tables.xlsx", overwrite = TRUE)
-cat("Updated: output/labor_income_tables.xlsx\n")
+saveWorkbook(wb, "output/tables/labor_income_tables.xlsx", overwrite = TRUE)
+cat("Updated: output/tables/labor_income_tables.xlsx\n")
 
 cat("\nDone!\n")

@@ -43,8 +43,10 @@ CASEN/
 ├── codes/                  # R scripts
 ├── raw_data/               # Original CASEN survey data (.dta)
 ├── harmonized_data/        # Processed datasets with harmonized variables
-├── output/                 # Analysis results (Excel, CSV)
-├── reports/                # Final reports (PDF, LaTeX, Markdown)
+├── output/
+│   ├── tables/             # Excel output files
+│   └── figures/            # Generated PNG figures
+├── reports/                # Final reports (LaTeX source files)
 └── README.md
 ```
 
@@ -57,7 +59,7 @@ Located in `reports/`:
 | `REPORT_Poverty_Comparison_2017_2024.tex` | Main report (English) - LaTeX source |
 | `REPORT_Poverty_Comparison_2017_2024_ES.tex` | Main report (Spanish) - LaTeX source |
 
-### Figures
+### Figures (in `output/figures/`)
 
 | File | Description |
 |------|-------------|
@@ -68,6 +70,16 @@ Located in `reports/`:
 | `income_by_education_2017.png` | Income comparison by education, 2017 (English) |
 | `income_by_education_2024.png` | Income comparison by education, 2024 (English) |
 | `*_es.png` | Spanish versions of all figures |
+
+### Tables (in `output/tables/`)
+
+| File | Description |
+|------|-------------|
+| `poverty_comparison_extended_2017.xlsx` | Poverty analysis for 2017 |
+| `poverty_comparison_extended_2024.xlsx` | Poverty analysis for 2024 |
+| `comparison_2017_2024.xlsx` | Year-over-year comparison |
+| `labor_income_by_cohort.xlsx` | Hourly income by age cohort |
+| `labor_income_tables.xlsx` | Summary tables with education premium |
 
 To compile PDF reports:
 ```bash
@@ -108,23 +120,23 @@ Edit `codes/poverty_analysis.R` and set the year:
 ```r
 YEAR <- 2017  # or 2024
 ```
-Then run the script. Results are saved to `output/poverty_comparison_extended_YEAR.xlsx`.
+Then run the script. Results are saved to `output/tables/poverty_comparison_extended_YEAR.xlsx`.
 
 ### 3. Compare Years
 After running the analysis for both years:
 ```r
 source("codes/compare_2017_2024.R")
 ```
-Results are saved to `output/comparison_2017_2024.xlsx`.
+Results are saved to `output/tables/comparison_2017_2024.xlsx`.
 
 ### 4. Labor Income Analysis
 ```r
 source("codes/labor_income_by_cohort.R")      # Calculate hourly income statistics
 source("codes/labor_income_tables_graphs.R")  # Generate tables and figures (EN/ES)
 ```
-Results are saved to `output/labor_income_by_cohort.xlsx` and `output/labor_income_tables.xlsx`.
+Results are saved to `output/tables/labor_income_by_cohort.xlsx` and `output/tables/labor_income_tables.xlsx`.
 
-Generated figures (saved to `reports/`):
+Generated figures (saved to `output/figures/`):
 - Education premium by age cohort (P25, median, P75, P90)
 - Income comparison by education level (2017 vs 2024)
 - All figures in English and Spanish versions

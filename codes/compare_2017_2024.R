@@ -28,16 +28,16 @@ cat("  Inflation factor (2017 -> 2024): ", round(inflation_factor, 4), "\n\n")
 # ==================================================
 
 cat("Loading CASEN 2017 Excel data...\n")
-poverty_2017 <- read_excel("output/poverty_comparison_extended_2017.xlsx", sheet = "Poverty_Rates")
-percentages_2017 <- read_excel("output/poverty_comparison_extended_2017.xlsx", sheet = "Percentages")
-deciles_total_2017 <- read_excel("output/poverty_comparison_extended_2017.xlsx", sheet = "Deciles_TotalIncome")
-deciles_aut_2017 <- read_excel("output/poverty_comparison_extended_2017.xlsx", sheet = "Deciles_AutonomousIncome")
+poverty_2017 <- read_excel("output/tables/poverty_comparison_extended_2017.xlsx", sheet = "Poverty_Rates")
+percentages_2017 <- read_excel("output/tables/poverty_comparison_extended_2017.xlsx", sheet = "Percentages")
+deciles_total_2017 <- read_excel("output/tables/poverty_comparison_extended_2017.xlsx", sheet = "Deciles_TotalIncome")
+deciles_aut_2017 <- read_excel("output/tables/poverty_comparison_extended_2017.xlsx", sheet = "Deciles_AutonomousIncome")
 
 cat("Loading CASEN 2024 Excel data...\n")
-poverty_2024 <- read_excel("output/poverty_comparison_extended_2024.xlsx", sheet = "Poverty_Rates")
-percentages_2024 <- read_excel("output/poverty_comparison_extended_2024.xlsx", sheet = "Percentages")
-deciles_total_2024 <- read_excel("output/poverty_comparison_extended_2024.xlsx", sheet = "Deciles_TotalIncome")
-deciles_aut_2024 <- read_excel("output/poverty_comparison_extended_2024.xlsx", sheet = "Deciles_AutonomousIncome")
+poverty_2024 <- read_excel("output/tables/poverty_comparison_extended_2024.xlsx", sheet = "Poverty_Rates")
+percentages_2024 <- read_excel("output/tables/poverty_comparison_extended_2024.xlsx", sheet = "Percentages")
+deciles_total_2024 <- read_excel("output/tables/poverty_comparison_extended_2024.xlsx", sheet = "Deciles_TotalIncome")
+deciles_aut_2024 <- read_excel("output/tables/poverty_comparison_extended_2024.xlsx", sheet = "Deciles_AutonomousIncome")
 
 cat("Excel data loaded successfully.\n\n")
 
@@ -473,7 +473,7 @@ comparison_output <- list(
   Decile_Avg_Income = decile_avg_income
 )
 
-output_file <- "output/comparison_2017_2024.xlsx"
+output_file <- "output/tables/comparison_2017_2024.xlsx"
 write_xlsx(comparison_output, output_file)
 cat("Comparison tables saved to:", output_file, "\n")
 

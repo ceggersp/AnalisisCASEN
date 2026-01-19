@@ -38,7 +38,7 @@ poverty_line <- poverty_lines[[as.character(YEAR)]]
 setwd("C:/Users/CARLOSEG/Documents/CASEN")
 
 data_file <- paste0("harmonized_data/casen_subset_", YEAR, ".dta")
-output_dir <- "output"
+output_dir <- "output/tables"
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
 
 # ==================================================
